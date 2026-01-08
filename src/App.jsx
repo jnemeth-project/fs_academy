@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ropeimport React, { useState } from 'react';
 import { Trophy, Zap, CheckCircle, XCircle, Award, ChevronRight, RotateCcw, BookOpen, Brain, Lightbulb, ArrowRight, Sparkles, Star } from 'lucide-react';
 
 const ForesightLearningApp = () => {
@@ -411,7 +411,7 @@ const ForesightLearningApp = () => {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-6xl font-light tracking-tight text-white mb-4">
-                Foresight Sports Academy
+                Foresight Sports Europe Academy
               </h1>
               <p className="text-zinc-400 text-lg font-light tracking-wide">Master our products, level up your expertise</p>
             </div>
@@ -468,5 +468,6 @@ const ForesightLearningApp = () => {
     </div>
   );
 };
+
 
 export default ForesightLearningApp;
