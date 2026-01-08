@@ -100,7 +100,7 @@ const ForesightLearningApp = () => {
   const quizData = {
     fsx2020: [
       { question: 'Customer wants offline FSX 2020 at cabin. What do you tell them?', answers: ['Internet always required', 'Can activate 720 offline hours', 'Only FSX Play works offline', 'Need special license'], correct: 1, explanation: 'FSX 2020 has offline mode! Activate 720 hours through FSX Live.' },
-      { question: 'Customer bought used system. First step to activate?', answers: ['Download immediately', 'Previous owner deactivates license', 'Buy new license', 'Contact support'], correct: 1, explanation: 'Previous owner must deactivate from FSX Live. One computer at a time!' },
+      { question: 'Customer bought used system. First step to activate?', answers: ['Download immediately', 'Previous owner deactivates license', 'Buy new license', 'Contact support'], correct: 3, explanation: 'Contact us first so we can verify that all licenses are free, properly deactivated, and ready to be activated on the new system.' },
       { question: 'How many FREE courses with FSX 2020?', answers: ['5 courses', '12 courses', '25 courses', 'No free courses'], correct: 1, explanation: 'FSX 2020 includes 12 free courses. FSX Play has 25!' },
       { question: 'Which graphics cards NOT supported?', answers: ['Nvidia GeForce RTX', 'Nvidia Quadro and AMD', 'All Nvidia', 'Only integrated'], correct: 1, explanation: 'Nvidia Quadro and AMD NOT supported. Always check graphics!' }
     ],
@@ -471,4 +471,5 @@ const ForesightLearningApp = () => {
 
 
 export default ForesightLearningApp;
+
 
