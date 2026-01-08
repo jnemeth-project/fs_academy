@@ -1,4 +1,4 @@
-ropeimport React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Trophy, Zap, CheckCircle, XCircle, Award, ChevronRight, RotateCcw, BookOpen, Brain, Lightbulb, ArrowRight, Sparkles, Star } from 'lucide-react';
 
 const ForesightLearningApp = () => {
@@ -471,3 +471,4 @@ const ForesightLearningApp = () => {
 
 
 export default ForesightLearningApp;
+
