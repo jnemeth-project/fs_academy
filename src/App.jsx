@@ -121,12 +121,12 @@ const ForesightLearningApp = () => {
       { question: 'FSX Play black screen - quick fix?', answers: ['Reinstall', 'Update drivers', 'Select a HOLE first', 'Restart computer'], correct: 2, explanation: 'Most common fix! Select hole before launching session.' },
       { question: 'Can FSX Play work offline?', answers: ['Yes, 720 hours', 'Yes, 100 hours', 'No, requires internet always', 'Only on iPad'], correct: 2, explanation: 'FSX Play requires internet always - no offline mode.' },
       { question: 'Customer wants pro swing analysis. Recommend?', answers: ['Plug-and-play camera', 'High-res driver camera', 'Use Swing Catalyst instead', 'Not supported'], correct: 2, explanation: 'FSX Play is recreational. For pro analysis, use Swing Catalyst!' },
-      { question: 'How many free courses in FSX Play?', answers: ['12 courses', '20 courses', '25 courses', '30 courses'], correct: 2, explanation: 'FSX Play includes 25 free courses - double FSX 2020!' }
+      { question: 'How many free courses in FSX Play?', answers: ['12 courses', '20 courses', '25 courses', '30 courses'], correct: 2, explanation: 'FSX Play includes 25 free courses - double FSX 2020!' },
       { question: 'Your FSX Play license is not showing after right after your purchase in your FSX Live account. Why would that be?', answers: ['Server outage', 'Wrong Windows version', 'Activation code not redeemed', 'Course not downloaded'], correct: 2, explanation: 'Licenses do not appear automatically and must be activated using the FSX Play activation code.' },
       { question: 'What must be done before a course can be played in FSX Play?', answers: ['Course must be manually installed from the website', 'Download from the Library', 'Restart the software', 'Enable Swing Camera'], correct: 1, explanation: 'Courses must be downloaded from the Library before they can be played.' },
       { question: 'Which cameras are supported by FSX Play?', answers: ['High-resolution driver cameras', 'Professional BlackFly analysis cameras', 'Plug-and-Play cameras only', 'Any USB camera will do'], correct: 2, explanation: 'FSX Play supports Plug-and-Play cameras only. The FSX Play video feature is for recreational analysis only.' },
       { question: 'What is the minimum FSX Play version that supports Swing Camera?', answers: ['1.8.0.12', '1.9.0.5', '1.10.0.10', '2.0.0.0'], correct: 2, explanation: 'Swing Camera is supported only in FSX Play version 1.10.0.10 or newer.' },
-      { question: 'Where can you download the latest version of FSX Play', answers: ['FSX Play auto updates', 'It doesn't need updating', 'The Support website online', 'FSX Live account online'], correct: 2, explanation: 'The latest version can be downloaded from https://support.foresightsports.com/support/fsx-play' }
+      { question: 'Where can you download the latest version of FSX Play', answers: ['FSX Play auto updates', 'It doesn't need updating', 'The Support website online', 'FSX Live account online'], correct: 2, explanation: 'The latest version can be downloaded from https://support.foresightsports.com/support/fsx-play' },
       { question: 'Select the correct URL for the support website', answers: ['https://support.foresightsports.com/support', 'https://support.foresightsports.org', 'https://info.foresightsports.com/support', 'https://help.foresightsports.eu'], correct: 0, explanation: 'All the latest versions can be downloaded from https://support.foresightsports.com/support' }
 
     ],
@@ -496,6 +496,7 @@ const ForesightLearningApp = () => {
 
 
 export default ForesightLearningApp;
+
 
 
 
