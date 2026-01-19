@@ -89,7 +89,7 @@ const ForesightLearningApp = () => {
       { title: 'Data Capabilities', text: 'Captures ball speed, launch angle, spin rates, spin axis, carry distance. Club data (paid add-on): head speed, smash factor, attack angle, club path, face angle, loft/lie, impact location. Always verify purchased modules!' },
       { title: 'LED Status', text: 'Flashing Blue = Looking for ball (ball-only). Steady Blue = Ready (ball-only). Flashing Green = Looking (ball & club). Steady Green = Ready (ball & club). Yellow = Booting. Steady Red = Error - try recalibrating first!' },
       { title: 'Software & Connectivity', text: 'Integrates with FSX Play, FSX 2020, FSX Pro, third-party like GSPro. Connectivity: WiFi, USB-C, Ethernet. Multiple methods provide flexibility. Lighter weight means easier installation with less demanding ceiling reinforcement!' },
-      { title: 'Installation', text: 'Mounts to ceiling with precise positioning relative to hitting mat and screen. Because Falcon is 26 lbs vs GCHawk, ceiling reinforcement requirements are less demanding. Multiple connectivity options provide installation flexibility!' }
+      { title: 'Installation', text: 'Mounts to ceiling with precise positioning relative to hitting mat and screen. Because Falcon is 26 lbs vs GCHawk, ceiling reinforcement requirements are less demanding. Multiple connectivity options provide installation flexibility!' },
       { title: 'Missing Club Data Fix', text: 'If Falcon picks up ball data but not club data: First, reapply reflective markers using the official marker application guide. Second, update Falcon firmware from support website. Third, recalibrate the Falcon. Fourth, connect the falcon to the Foresight Mobile App and confirm that the club has not been turned off by accident. If issue persists, contact support with: Has club data worked before? Are multiple clubs affected? Can multiple people replicate? Can you replicate in multiple software? Falcon firmware version and serial number.' },
       { title: 'Reflective Markers', text: 'Reflective markers are essential for club data tracking. If club data is missing, the first step is always to reapply markers following the official application guide. Markers must be properly positioned on clubs for accurate tracking. When troubleshooting, always check if markers are correctly applied before moving to firmware or calibration solutions.' },
       { title: 'Firmware Updates', text: 'Keeping Falcon firmware up to date is critical for optimal performance and can resolve connectivity and data tracking issues. Latest firmware version is published on the Hardware Support website at support.foresightsports.com/support/hardware. Regular firmware updates ensure compatibility with latest software versions and fix known issues. Always update firmware when troubleshooting connection or data problems.' },
@@ -496,6 +496,7 @@ const ForesightLearningApp = () => {
 
 
 export default ForesightLearningApp;
+
 
 
 
