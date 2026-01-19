@@ -45,7 +45,7 @@ const ForesightLearningApp = () => {
       { title: 'Course Compatibility', text: 'FSX Play has 25 free courses, but not all FSX 2020 courses work with FSX Play. New courses are mainly developed for FSX Play only. Always verify compatibility before purchase!' },
       { title: 'Camera Limitations', text: 'FSX Play supports cameras but with limits. Only Plug-and-Play cameras supported. High-resolution driver cameras are NOT compatible. For professional analysis, we recommend the Swing Catalyst software!' },
       { title: 'Setup & Activation', text: 'Create/login to FSX Live account, activate with code, download from support site, install on Windows, launch and sign in. Important: The license won\'t show under your FSX Live account automatically - you must activate with the login details and activation code first!' },
-      { title: 'Black Screen Fix', text: 'Most common call: Course loads to black screen! THE FIX: Make sure a HOLE is selected before starting session! Customers click play without selecting hole. This fixes 95% of cases!' }
+      { title: 'Black Screen Fix', text: 'Most common call: Course loads to black screen! THE FIX: Make sure a HOLE is selected before starting session! Customers click play without selecting hole. This fixes 95% of cases!' },
       { title: 'Course Downloads', text: 'Courses do not play instantly after activation. Users must download courses from the Library before they become available to play.' },
       { title: 'Swing Camera Version Requirement', text: 'Swing Camera is ONLY supported in FSX Play version 1.10.0.10 or newer. Earlier versions will not show Swing Camera options.' },
       { title: 'Swing Camera Enable Path', text: 'To enable Swing Camera: Go to Settings in them Main Menu → Swing Camera → Click ENABLE → Assign camera from dropdown. You must do this from the main menu, not from the open session settings.' },
@@ -496,6 +496,7 @@ const ForesightLearningApp = () => {
 
 
 export default ForesightLearningApp;
+
 
 
 
