@@ -34,18 +34,21 @@ const ForesightLearningApp = () => {
     fsx2020: [
       { title: 'What is FSX 2020?', text: 'FSX 2020 is Foresight Sports premium golf simulator software. The software can only be activated on ONE computer at a time. Customers get 12 free courses right out of the box.' },
       { title: 'Offline Hours Feature', text: 'FSX 2020 can work without internet for up to 720 in-game hours! Perfect for vacation homes or poor WiFi areas. To activate: Log into FSX Live, request offline hours, open FSX 2020 while connected, request again, then disconnect.' },
-      { title: 'Moving to Another Computer', text: 'Since FSX 2020 only works on one computer at a time, customers need to move it. Process: Log into FSX Live online, go to My Account > Licenses, click Deactivate, then install on new computer.' },
+      { title: 'Moving to Another Computer', text: 'Since FSX 2020 only works on one computer at a time, customers need to move it. Process: Log into FSX Live online, go to My Account > Licenses, click Deactivate, then install on new computer and reactivate with the same details.' },
       { title: 'System Requirements', text: 'Windows 10 64-bit or newer required. Intel i5/i7/i9 7th gen or newer. Minimum 8GB RAM, recommend 16GB. Nvidia GeForce RTX 3060 or better. Nvidia Quadro and AMD cards are NOT supported!' },
-      { title: 'License Bundle', text: 'FSX 2020 typically includes FSX Pro (2 licenses) and Foresight Fairgrounds (1 license). These automatically unlock when FSX 2020 is activated - no separate codes needed!' },
-      { title: 'License Error Fix', text: 'Most common issue: License validation error. Fix: Check internet, deactivate license in FSX Live online, reload FSX 2020 multiple times, update software, update Windows. This fixes 90% of issues!' }
+      { title: 'License Bundle', text: 'FSX 2020 typically includes FSX Pro (2 licenses) and Foresight Fairgrounds (1 license) unless FSX 2020 was purchased as a standalone code. FSX Pro and Fairgrounds automatically unlock when FSX 2020 is activated - no separate codes needed! Just install these apps, log in with your FSX 2020 Username and Password and you should be good to go!' },
+      { title: 'License Error Fix', text: 'Most common issue: License validation error. Fix: Check internet, deactivate license in FSX Live online, reload FSX 2020 a few times, update software, update Windows. This fixes 90% of issues!' }
     ],
     fsxplay: [
       { title: 'Meet FSX Play', text: 'FSX Play is next-generation simulation software with hyper-realistic graphics. It includes 25 FREE courses - more than double FSX 2020\'s 12 courses!' },
-      { title: 'Internet Always Required', text: 'Unlike FSX 2020, FSX Play does NOT have offline mode. It needs stable internet at all times. Crucial for customer expectations! If unreliable internet, recommend FSX 2020 instead.' },
+      { title: 'Internet Is Always Required', text: 'Unlike FSX 2020, FSX Play does NOT have offline mode. It needs stable internet at all times.' },
       { title: 'Course Compatibility', text: 'FSX Play has 25 free courses, but not all FSX 2020 courses work with FSX Play. New courses are mainly developed for FSX Play only. Always verify compatibility before purchase!' },
-      { title: 'Camera Limitations', text: 'FSX Play supports cameras but with limits. Only Plug-and-Play cameras supported. High-resolution driver cameras NOT compatible. For professional analysis, recommend Swing Catalyst software!' },
-      { title: 'Setup & Activation', text: 'Create/login to FSX Live account, activate with code, download from support site, install on Windows, launch and sign in. Important: License won\'t show automatically - must activate with code first!' },
+      { title: 'Camera Limitations', text: 'FSX Play supports cameras but with limits. Only Plug-and-Play cameras supported. High-resolution driver cameras are NOT compatible. For professional analysis, we recommend the Swing Catalyst software!' },
+      { title: 'Setup & Activation', text: 'Create/login to FSX Live account, activate with code, download from support site, install on Windows, launch and sign in. Important: The license won\'t show under your FSX Live account automatically - you must activate with the login details and activation code first!' },
       { title: 'Black Screen Fix', text: 'Most common call: Course loads to black screen! THE FIX: Make sure a HOLE is selected before starting session! Customers click play without selecting hole. This fixes 95% of cases!' }
+      { title: 'Course Downloads', text: 'Courses do not play instantly after activation. Users must download courses from the Library before they become available to play.' },
+      { title: 'Swing Camera Version Requirement', text: 'Swing Camera is ONLY supported in FSX Play version 1.10.0.10 or newer. Earlier versions will not show Swing Camera options.' },
+      
     ],
     fairgrounds: [
       { title: 'What is Fairgrounds?', text: 'Foresight Fairgrounds is entertainment mini-games for your simulator. BEST PART: Comes FREE with FSX 2020! Think of it as party mode - perfect for friends and family.' },
@@ -471,5 +474,6 @@ const ForesightLearningApp = () => {
 
 
 export default ForesightLearningApp;
+
 
 
