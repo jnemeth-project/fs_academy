@@ -48,7 +48,8 @@ const ForesightLearningApp = () => {
       { title: 'Black Screen Fix', text: 'Most common call: Course loads to black screen! THE FIX: Make sure a HOLE is selected before starting session! Customers click play without selecting hole. This fixes 95% of cases!' }
       { title: 'Course Downloads', text: 'Courses do not play instantly after activation. Users must download courses from the Library before they become available to play.' },
       { title: 'Swing Camera Version Requirement', text: 'Swing Camera is ONLY supported in FSX Play version 1.10.0.10 or newer. Earlier versions will not show Swing Camera options.' },
-      
+      { title: 'Swing Camera Enable Path', text: 'To enable Swing Camera: Go to Settings in them Main Menu → Swing Camera → Click ENABLE → Assign camera from dropdown. You must do this from the main menu, not from the open session settings.' },
+      { title: 'Why is the purchased license not showing in your FSX Live Account?', text: 'Licenses do NOT appear automatically after purchase. Make sure you activated your FSX Play license within the software using your FSX Live username, Password, and the FSX Play activation code. After a successful activation, the license should appear in your FSX Live account online. (Hint: You must use the same FSX Live Username and Password for the activation that you used for the FSX Live account login.' },
     ],
     fairgrounds: [
       { title: 'What is Fairgrounds?', text: 'Foresight Fairgrounds is entertainment mini-games for your simulator. BEST PART: Comes FREE with FSX 2020! Think of it as party mode - perfect for friends and family.' },
@@ -89,7 +90,16 @@ const ForesightLearningApp = () => {
       { title: 'LED Status', text: 'Flashing Blue = Looking for ball (ball-only). Steady Blue = Ready (ball-only). Flashing Green = Looking (ball & club). Steady Green = Ready (ball & club). Yellow = Booting. Steady Red = Error - try recalibrating first!' },
       { title: 'Software & Connectivity', text: 'Integrates with FSX Play, FSX 2020, FSX Pro, third-party like GSPro. Connectivity: WiFi, USB-C, Ethernet. Multiple methods provide flexibility. Lighter weight means easier installation with less demanding ceiling reinforcement!' },
       { title: 'Installation', text: 'Mounts to ceiling with precise positioning relative to hitting mat and screen. Because Falcon is 26 lbs vs GCHawk, ceiling reinforcement requirements are less demanding. Multiple connectivity options provide installation flexibility!' }
-    ],
+      { title: 'Missing Club Data Fix', text: 'If Falcon picks up ball data but not club data: First, reapply reflective markers using the official marker application guide. Second, update Falcon firmware from support website. Third, recalibrate the Falcon. Fourth, connect the falcon to the Foresight Mobile App and confirm that the club has not been turned off by accident. If issue persists, contact support with: Has club data worked before? Are multiple clubs affected? Can multiple people replicate? Can you replicate in multiple software? Falcon firmware version and serial number.' },
+      { title: 'Reflective Markers', text: 'Reflective markers are essential for club data tracking. If club data is missing, the first step is always to reapply markers following the official application guide. Markers must be properly positioned on clubs for accurate tracking. When troubleshooting, always check if markers are correctly applied before moving to firmware or calibration solutions.' },
+      { title: 'Firmware Updates', text: 'Keeping Falcon firmware up to date is critical for optimal performance and can resolve connectivity and data tracking issues. Latest firmware version is published on the Hardware Support website at support.foresightsports.com/support/hardware. Regular firmware updates ensure compatibility with latest software versions and fix known issues. Always update firmware when troubleshooting connection or data problems.' },
+      { title: 'When Recalibration Is Needed', text: 'Recalibration may be required if: Device fails to lock or intermittently loses lock, launch or club data is missing or inconsistent, device was serviced repositioned or remounted, hitting area or turf surface has changed. Falcon and GCHawk are ceiling-mounted monitors that rely on camera calibration to accurately track balls and clubs. Regular recalibration ensures optimal performance.' },
+      { title: 'Recalibration Step 1: Delete Old Files', text: 'To recalibrate, first delete old calibration files: Open File Explorer, type %AppData% in address bar and press Enter. In Roaming folder, click up arrow to go up one level. Open LocalLow → ForesightSports → ForesightOverheadCalibration. Delete all .json files in this folder that start with 'CreationDate'. Empty Recycle Bin to complete removal. This clears old calibration data for fresh start.' },
+      { title: 'Recalibration Step 2: Calibration Tool', text: 'Download latest Overhead Calibration Tool from support site (support.foresightsports.com/support/hardware/falcon). Launch the tool and follow on-screen prompts. Before starting, ensure the hitting area is clear of reflective objects and lighting is consistent. Using calibration wand, move through requested positions within hitting area as directed. Keep wand visible to cameras and move at steady pace. Let the tool run to completion and save new calibration.' },
+      { title: 'Calibration Best Practices', text: 'During calibration, hitting area must be clear of reflective objects to avoid interference with camera tracking. Lighting should be consistent throughout the process. Move calibration wand at steady pace, waist height at a 45 degree angle through all requested positions, keeping it visible to all four cameras. After calibration completes, restart the device and test ball/club tracking to confirm lock and accuracy are restored. Watch Falcon Calibration Video guide for visual instructions.' },
+      { title: 'Support Contact Information', text: 'If troubleshooting steps do not resolve your issue, contact support@foresightsports.eu with detailed information: What troubleshooting steps have you tried? Has the feature worked before? Can multiple people replicate the issue? What software versions are you testing? Include Falcon firmware version and serial number. Providing comprehensive details helps support team diagnose and resolve issues faster. Video guides and documentation available at support.foresightsports.com.' }
+
+],
     gchawk: [
       { title: 'What is GCHawk?', text: 'GCHawk is flagship ceiling-mounted launch monitor - gold standard for high-end simulators and commercial facilities. Same Quadrascopic system as GCQuad - four cameras for tour-level accuracy. Hands-free overhead design never gets in way!' },
       { title: 'Premium Hitting Zone', text: 'Features 52" x 30" hitting area - one of largest in industry! Supports all clubs including putter. Both left and right-handed players without repositioning. Commercial-grade durability for high-volume use!' },
@@ -112,6 +122,13 @@ const ForesightLearningApp = () => {
       { question: 'Can FSX Play work offline?', answers: ['Yes, 720 hours', 'Yes, 100 hours', 'No, requires internet always', 'Only on iPad'], correct: 2, explanation: 'FSX Play requires internet always - no offline mode.' },
       { question: 'Customer wants pro swing analysis. Recommend?', answers: ['Plug-and-play camera', 'High-res driver camera', 'Use Swing Catalyst instead', 'Not supported'], correct: 2, explanation: 'FSX Play is recreational. For pro analysis, use Swing Catalyst!' },
       { question: 'How many free courses in FSX Play?', answers: ['12 courses', '20 courses', '25 courses', '30 courses'], correct: 2, explanation: 'FSX Play includes 25 free courses - double FSX 2020!' }
+      { question: 'Your FSX Play license is not showing after right after your purchase in your FSX Live account. Why would that be?', answers: ['Server outage', 'Wrong Windows version', 'Activation code not redeemed', 'Course not downloaded'], correct: 2, explanation: 'Licenses do not appear automatically and must be activated using the FSX Play activation code.' },
+      { question: 'What must be done before a course can be played in FSX Play?', answers: ['Course must be manually installed from the website', 'Download from the Library', 'Restart the software', 'Enable Swing Camera'], correct: 1, explanation: 'Courses must be downloaded from the Library before they can be played.' },
+      { question: 'Which cameras are supported by FSX Play?', answers: ['High-resolution driver cameras', 'Professional BlackFly analysis cameras', 'Plug-and-Play cameras only', 'Any USB camera will do'], correct: 2, explanation: 'FSX Play supports Plug-and-Play cameras only. The FSX Play video feature is for recreational analysis only.' },
+      { question: 'What is the minimum FSX Play version that supports Swing Camera?', answers: ['1.8.0.12', '1.9.0.5', '1.10.0.10', '2.0.0.0'], correct: 2, explanation: 'Swing Camera is supported only in FSX Play version 1.10.0.10 or newer.' },
+      { question: 'Where can you download the latest version of FSX Play', answers: ['FSX Play auto updates', 'It doesn't need updating', 'The Support website online', 'FSX Live account online'], correct: 2, explanation: 'The latest version can be downloaded from https://support.foresightsports.com/support/fsx-play' }
+      { question: 'Select the correct URL for the support website', answers: ['https://support.foresightsports.com/support', 'https://support.foresightsports.org', 'https://info.foresightsports.com/support', 'https://help.foresightsports.eu'], correct: 0, explanation: 'All the latest versions can be downloaded from https://support.foresightsports.com/support' }
+
     ],
     fairgrounds: [
       { question: 'Fairgrounds cost with FSX 2020?', answers: ['$299/year', '$99 one-time', 'Free - included', '$49/year'], correct: 2, explanation: 'Fairgrounds FREE with FSX 2020!' },
@@ -142,6 +159,11 @@ const ForesightLearningApp = () => {
       { question: 'Falcon shows steady red LED - what to do?', answers: ['Device needs replacing', 'Try recalibrating first', 'Contact support now', 'Restart computer'], correct: 1, explanation: 'Steady red = error. First step: try recalibrating!' },
       { question: 'LED color for Falcon ready in ball & club?', answers: ['Flashing blue', 'Steady blue', 'Flashing green', 'Steady green'], correct: 3, explanation: 'Steady green = ready in ball & club mode!' },
       { question: 'Falcon hitting zone size?', answers: ['52" x 30"', '59" x 28"', '48" x 26"', '60" x 32"'], correct: 1, explanation: 'Falcon has 59" x 28" hitting zone!' }
+      { question: 'What should you reapply if Falcon picks up ball data but not club data?', answers: ['Calibration wand', 'Reflective markers', 'Ethernet cable', 'Firmware patch'], correct: 1, explanation: 'Reapply reflective markers first! This is the #1 fix for missing club data.' },
+      { question: 'Can updating Falcon firmware help resolve missing club data issues?', answers: ['No, firmware only affects connection', 'Yes, firmware updates can fix data issues', 'Only for ball data', 'Firmware never affects tracking'], correct: 1, explanation: 'Yes! Updating firmware is step 2 after reapplying markers for missing club data.' },
+      { question: 'Is recalibration only required when Falcon is first installed?', answers: ['Yes, one-time only', 'No, needed when conditions change', 'Only after firmware updates', 'Never required'], correct: 1, explanation: 'Recalibration needed when: device loses lock, hitting area changes, or device is serviced/moved!' },
+    
+      
     ],
     gchawk: [
       { question: 'GCHawk WiFi password?', answers: ['GCHAWK2024', 'FSSPORTS', 'foresight123', 'No password'], correct: 1, explanation: 'Default WiFi password is FSSPORTS!' },
@@ -474,6 +496,7 @@ const ForesightLearningApp = () => {
 
 
 export default ForesightLearningApp;
+
 
 
 
