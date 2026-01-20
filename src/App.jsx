@@ -80,8 +80,8 @@ const ForesightLearningApp = () => {
       { title: 'GC3S Subscription', text: 'GC3S is same hardware but subscription licensing instead of one-time purchase. KEY DIFFERENCE: No activation codes! Setup: Connect to internet, register to FSX Live, launch software and select Subscription, enter serial, access granted! For FSX 2020, need special Subscription Version download.' }
     ],
     falcon: [
-      { title: 'Meet the Falcon', text: 'Falcon is Foresight\'s newest ceiling-mounted launch monitor. The "little brother" to GCHawk - same professional technology, much more compact. 43" long, weighs only 26 lbs - roughly HALF the size of GCHawk!' },
-      { title: 'Hitting Zone', text: 'Features 59" x 28" hitting zone accommodating all clubs from driver to putter. Both right AND left-handed golfers play without repositioning! Ideal for residential installations where space optimization matters.' },
+      { title: 'Meet the Falcon', text: 'Falcon is Foresight\'s newest ceiling-mounted launch monitor. The "little brother" to GCHawk - same professional technology, much more compact. 43\" long, weighs only 26 lbs - roughly HALF the size of GCHawk!' },
+      { title: 'Hitting Zone', text: 'Features 59\" x 28\" hitting zone accommodating all clubs from driver to putter. Both right AND left-handed golfers play without repositioning! Ideal for residential installations where space optimization matters.' },
       { title: 'Data Capabilities', text: 'Captures ball speed, launch angle, spin rates, spin axis, carry distance. Club data (paid add-on): head speed, smash factor, attack angle, club path, face angle, loft/lie, impact location. Always verify purchased modules!' },
       { title: 'LED Status', text: 'Flashing Blue = Looking for ball (ball-only). Steady Blue = Ready (ball-only). Flashing Green = Looking (ball & club). Steady Green = Ready (ball & club). Yellow = Booting. Steady Red = Error - try recalibrating first!' },
       { title: 'Software & Connectivity', text: 'Integrates with FSX Play, FSX 2020, FSX Pro, third-party like GSPro. Connectivity: WiFi, USB-C, Ethernet. Multiple methods provide flexibility. Lighter weight means easier installation with less demanding ceiling reinforcement!' },
@@ -89,7 +89,7 @@ const ForesightLearningApp = () => {
     ],
     gchawk: [
       { title: 'What is GCHawk?', text: 'GCHawk is flagship ceiling-mounted launch monitor - gold standard for high-end simulators and commercial facilities. Same Quadrascopic system as GCQuad - four cameras for tour-level accuracy. Hands-free overhead design never gets in way!' },
-      { title: 'Premium Hitting Zone', text: 'Features 52" x 30" hitting area - one of largest in industry! Supports all clubs including putter. Both left and right-handed players without repositioning. Commercial-grade durability for high-volume use!' },
+      { title: 'Premium Hitting Zone', text: 'Features 52\" x 30\" hitting area - one of largest in industry! Supports all clubs including putter. Both left and right-handed players without repositioning. Commercial-grade durability for high-volume use!' },
       { title: 'Multi-Sport Magic', text: 'GCHawk tracks GOLF and SOCCER! Uses Skill Drill software for soccer. Golf mode captures standard data. Soccer mode tracks ball speed, trajectory, accuracy. Incredibly valuable for multi-sport facilities!' },
       { title: 'Data Modules', text: 'Ball Data included (speed, launch, spin). Club Data paid add-on (club speed, path, face angle, impact). Putting paid add-on (skid, roll, post-impact). Important: Modules often have trial periods - after expiration need purchase!' },
       { title: 'LED & Connectivity', text: 'Same LED as other Foresight: Blue = ball-only, Green = ball & club, Yellow = booting, Red = error. Connectivity: USB-C, Ethernet, WiFi. CRITICAL: Default WiFi password is FSSPORTS - customers need this for mobile apps!' },
@@ -118,12 +118,12 @@ const ForesightLearningApp = () => {
     ],
     fsxpro: [
       { question: 'How many devices run FSX Pro simultaneously?', answers: ['One device', 'Two devices', 'Three devices', 'Unlimited'], correct: 1, explanation: 'FSX Pro includes 2 simultaneous licenses!' },
-      { question: '"Upgrade to Unlock" error - likely cause?', answers: ['Trial expired', 'License not linked to account', 'Wrong password', 'Needs update'], correct: 1, explanation: 'License not properly linked to FSX Live account. Log out/in or clean reinstall!' },
+      { question: '\"Upgrade to Unlock\" error - likely cause?', answers: ['Trial expired', 'License not linked to account', 'Wrong password', 'Needs update'], correct: 1, explanation: 'License not properly linked to FSX Live account. Log out/in or clean reinstall!' },
       { question: 'Does FSX Pro sync between PC and iPad?', answers: ['Yes, cloud sync', 'No, local storage only', 'Only on same WiFi', 'Once per day'], correct: 1, explanation: 'Local storage only - no cloud sync. Each device separate database!' },
       { question: 'Can FSX Pro run on Mac?', answers: ['Yes, Mac and Windows', 'No, but works on iPad', 'Only M1/M2 Macs', 'With special license'], correct: 1, explanation: 'Mac NOT supported. iPad yes, Mac no!' }
     ],
     gcquad: [
-      { question: 'GCQuad "Registration Expired" - what happened?', answers: ['Need new subscription', 'Device broken', 'Not validated in 45+ days', 'Warranty expired'], correct: 2, explanation: 'GCQuad needs validation every 45 days!' },
+      { question: 'GCQuad \"Registration Expired\" - what happened?', answers: ['Need new subscription', 'Device broken', 'Not validated in 45+ days', 'Warranty expired'], correct: 2, explanation: 'GCQuad needs validation every 45 days!' },
       { question: 'LED color for ball AND club ready?', answers: ['Blue', 'Green', 'Yellow', 'Purple'], correct: 1, explanation: 'Green = Ball & Club ready!' },
       { question: 'Easiest way to validate GCQuad?', answers: ['USB to FSX 2020', 'Foresight App via Bluetooth', 'Email support', 'Ethernet to PC'], correct: 1, explanation: 'Foresight App via Bluetooth is quickest!' },
       { question: 'When validation expires, what works?', answers: ['Everything normal', 'Only USB connection', 'Only WiFi', 'Nothing works'], correct: 1, explanation: 'When expired: WiFi/Bluetooth stops, but USB still works!' }
@@ -135,15 +135,15 @@ const ForesightLearningApp = () => {
       { question: 'Update GC3 firmware without computer?', answers: ['No, computer required', 'Yes, WiFi-Direct to router', 'Only iPad', 'Only Bluetooth'], correct: 1, explanation: 'WiFi-Direct lets it connect to routers for updates!' }
     ],
     falcon: [
-      { question: 'Falcon vs GCHawk size difference?', answers: ['Same size', 'Slightly smaller', 'About half size and weight', 'Twice as large'], correct: 2, explanation: 'Falcon is 43" long, 26 lbs - HALF the size of GCHawk!' },
+      { question: 'Falcon vs GCHawk size difference?', answers: ['Same size', 'Slightly smaller', 'About half size and weight', 'Twice as large'], correct: 2, explanation: 'Falcon is 43\" long, 26 lbs - HALF the size of GCHawk!' },
       { question: 'Falcon shows steady red LED - what to do?', answers: ['Device needs replacing', 'Try recalibrating first', 'Contact support now', 'Restart computer'], correct: 1, explanation: 'Steady red = error. First step: try recalibrating!' },
       { question: 'LED color for Falcon ready in ball & club?', answers: ['Flashing blue', 'Steady blue', 'Flashing green', 'Steady green'], correct: 3, explanation: 'Steady green = ready in ball & club mode!' },
-      { question: 'Falcon hitting zone size?', answers: ['52" x 30"', '59" x 28"', '48" x 26"', '60" x 32"'], correct: 1, explanation: 'Falcon has 59" x 28" hitting zone!' }
+      { question: 'Falcon hitting zone size?', answers: ['52\" x 30\"', '59\" x 28\"', '48\" x 26\"', '60\" x 32\"'], correct: 1, explanation: 'Falcon has 59\" x 28\" hitting zone!' }
     ],
     gchawk: [
       { question: 'GCHawk WiFi password?', answers: ['GCHAWK2024', 'FSSPORTS', 'foresight123', 'No password'], correct: 1, explanation: 'Default WiFi password is FSSPORTS!' },
       { question: 'What makes GCHawk unique?', answers: ['Most accurate', 'Tracks golf AND soccer', 'Longest battery', 'Smallest size'], correct: 1, explanation: 'GCHawk tracks both golf and soccer!' },
-      { question: 'GCHawk hitting area size?', answers: ['48" x 26"', '59" x 28"', '52" x 30"', '60" x 35"'], correct: 2, explanation: 'GCHawk has 52" x 30" hitting area!' },
+      { question: 'GCHawk hitting area size?', answers: ['48\" x 26\"', '59\" x 28\"', '52\" x 30\"', '60\" x 35\"'], correct: 2, explanation: 'GCHawk has 52\" x 30\" hitting area!' },
       { question: 'Customer has club data - expected LED?', answers: ['Blue', 'Green', 'Yellow', 'Purple'], correct: 1, explanation: 'Green = Ball & Club mode!' }
     ]
   };
@@ -223,35 +223,35 @@ const ForesightLearningApp = () => {
     return (
       <div className="min-h-screen bg-black p-4 md:p-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-zinc-900/80 backdrop-blur-xl rounded-[2rem] p-6 mb-6 shadow-2xl border border-zinc-800">
+          <div className="bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] p-6 mb-6 shadow-2xl border border-zinc-800">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-xs font-bold tracking-widest text-zinc-400 uppercase">Lesson {currentLesson + 1} of {lessons.length}</span>
-              <span className="text-xs font-bold tracking-widest text-emerald-400 uppercase">+10 XP</span>
+              <span className="text-xs font-light tracking-widest text-zinc-400 uppercase">Lesson {currentLesson + 1} of {lessons.length}</span>
+              <span className="text-xs font-medium tracking-widest text-emerald-400 uppercase">+10 XP</span>
             </div>
-            <div className="w-full bg-zinc-800 rounded-full h-2 shadow-inner">
-              <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 h-2 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(52,211,153,0.5)]" style={{ width: `${progress}%` }} />
+            <div className="w-full bg-zinc-800 rounded-full h-1.5">
+              <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 h-1.5 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(52,211,153,0.3)]" style={{ width: `${progress}%` }} />
             </div>
           </div>
 
-          <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-12 mb-6 text-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-b-8 border-black/30`}>
-            <h1 className="text-5xl font-black tracking-tighter mb-4 drop-shadow-2xl">{product.name}</h1>
-            <h2 className="text-xl font-medium opacity-90 tracking-wide drop-shadow-md">{lesson.title}</h2>
+          <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-12 mb-6 text-white shadow-2xl relative overflow-hidden`}>
+            <h1 className="text-4xl font-light tracking-tight mb-3 drop-shadow-lg">{product.name}</h1>
+            <h2 className="text-xl font-light opacity-80 tracking-wide">{lesson.title}</h2>
           </div>
 
-          <div className="bg-zinc-50 rounded-[2rem] p-12 shadow-2xl border-b-8 border-zinc-300">
-            <p className="text-zinc-900 text-lg leading-relaxed mb-10 font-medium">{lesson.text}</p>
+          <div className="bg-white rounded-[2rem] p-12 shadow-xl border border-zinc-100">
+            <p className="text-zinc-600 text-base leading-relaxed mb-8 font-light">{lesson.text}</p>
 
-            <div className="flex gap-4 pt-8 border-t border-zinc-200">
+            <div className="flex gap-4 pt-8 border-t border-zinc-100">
               {currentLesson > 0 && (
-                <button onClick={() => setCurrentLesson(currentLesson - 1)} className="px-8 py-4 bg-white text-zinc-900 rounded-2xl font-bold border-b-4 border-zinc-300 hover:bg-zinc-50 active:translate-y-1 active:border-b-0 transition-all shadow-md">
-                  ← Previous
+                <button onClick={() => setCurrentLesson(currentLesson - 1)} className="px-8 py-3 bg-zinc-50 text-zinc-900 rounded-xl font-medium border border-zinc-200 hover:bg-zinc-100 hover:shadow-md transition-all">
+                  Previous
                 </button>
               )}
-              <button onClick={handleNextLesson} className="flex-1 bg-gradient-to-b from-zinc-800 to-black text-white py-5 rounded-2xl font-black border-b-4 border-black hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-3 uppercase tracking-tighter">
+              <button onClick={handleNextLesson} className="flex-1 bg-gradient-to-b from-zinc-800 to-black text-white py-3 rounded-xl font-medium shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 tracking-wide">
                 {currentLesson < lessons.length - 1 ? (
-                  <>Next Lesson <ArrowRight className="w-5 h-5" /></>
+                  <>Next Lesson <ArrowRight className="w-4 h-4" /></>
                 ) : (
-                  <>Finish Learning <Sparkles className="w-5 h-5" /></>
+                  <>Complete Module <Sparkles className="w-4 h-4" /></>
                 )}
               </button>
             </div>
@@ -268,52 +268,52 @@ const ForesightLearningApp = () => {
 
     return (
       <div className="min-h-screen bg-black p-8 flex items-center justify-center">
-        <div className="max-w-2xl w-full bg-zinc-900 rounded-[2rem] p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-zinc-800 border-b-8 border-black">
+        <div className="max-w-2xl w-full bg-zinc-900 rounded-[2rem] p-12 shadow-2xl border border-zinc-800">
           <div className="flex justify-between items-center mb-8">
-            <span className="text-xs font-black tracking-widest text-zinc-500 uppercase">Question {currentQuizQuestion + 1} of {quiz.length}</span>
-            <span className="text-xs font-black tracking-widest text-emerald-500 uppercase">Score: {quizScore}/{quiz.length}</span>
+            <span className="text-xs font-light tracking-widest text-zinc-500 uppercase">Question {currentQuizQuestion + 1} of {quiz.length}</span>
+            <span className="text-xs font-medium tracking-widest text-emerald-500 uppercase">Score: {quizScore}/{quiz.length}</span>
           </div>
 
-          <h2 className="text-3xl font-bold mb-10 text-white leading-tight drop-shadow-md">{question.question}</h2>
+          <h2 className="text-2xl font-light mb-8 text-white leading-relaxed tracking-tight">{question.question}</h2>
 
-          <div className="space-y-4 mb-10">
+          <div className="space-y-3 mb-8">
             {question.answers.map((answer, idx) => (
               <button
                 key={idx}
                 onClick={() => !showFeedback && handleAnswerSelect(idx)}
                 disabled={showFeedback}
-                className={`w-full p-6 rounded-2xl text-left font-bold transition-all border-b-4 ${
+                className={`w-full p-5 rounded-xl text-left font-light transition-all border ${
                   showFeedback
                     ? idx === question.correct
-                      ? 'bg-emerald-500/20 border-emerald-600 text-white shadow-[0_0_15px_rgba(16,185,129,0.2)]'
+                      ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400'
                       : idx === selectedAnswer
-                      ? 'bg-rose-500/20 border-rose-600 text-white'
+                      ? 'bg-rose-500/10 border-rose-500 text-rose-400'
                       : 'bg-zinc-800/50 text-zinc-600 border-zinc-900'
                     : selectedAnswer === idx
-                    ? 'bg-white text-black border-zinc-300'
-                    : 'bg-zinc-800 hover:bg-zinc-700 text-white border-black hover:-translate-y-1'
+                    ? 'bg-white text-black border-white shadow-xl'
+                    : 'bg-zinc-800 hover:bg-zinc-700/50 text-white border-zinc-800 hover:shadow-lg hover:-translate-y-0.5'
                 }`}
               >
-                <div className="flex items-center gap-4">
-                  {showFeedback && idx === question.correct && <CheckCircle className="w-6 h-6 text-emerald-400" />}
-                  {showFeedback && idx === selectedAnswer && idx !== question.correct && <XCircle className="w-6 h-6 text-rose-400" />}
-                  <span className="text-lg">{answer}</span>
+                <div className="flex items-center gap-3">
+                  {showFeedback && idx === question.correct && <CheckCircle className="w-5 h-5" />}
+                  {showFeedback && idx === selectedAnswer && idx !== question.correct && <XCircle className="w-5 h-5" />}
+                  <span>{answer}</span>
                 </div>
               </button>
             ))}
           </div>
 
           {showFeedback && (
-            <div className="animate-in fade-in slide-in-from-bottom-4 duration-300">
-              <div className={`p-8 rounded-2xl mb-8 border-l-8 ${isCorrect ? 'bg-emerald-500/10 border-emerald-500' : 'bg-cyan-500/10 border-cyan-500'}`}>
-                <p className={`font-black mb-2 flex items-center gap-2 uppercase tracking-tighter ${isCorrect ? 'text-emerald-400' : 'text-cyan-400'}`}>
-                  {isCorrect ? <><Trophy className="w-5 h-5" /> Correct!</> : <><Lightbulb className="w-5 h-5" /> Tip</>}
+            <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <div className={`p-6 rounded-xl mb-8 border-l-2 ${isCorrect ? 'bg-emerald-500/5 border-emerald-500' : 'bg-cyan-500/5 border-cyan-500'}`}>
+                <p className={`font-medium mb-1 text-sm ${isCorrect ? 'text-emerald-400' : 'text-cyan-400'}`}>
+                  {isCorrect ? 'Correct!' : 'Knowledge Check'}
                 </p>
-                <p className="text-zinc-300 text-lg font-medium leading-relaxed">{question.explanation}</p>
+                <p className="text-zinc-400 text-sm font-light leading-relaxed">{question.explanation}</p>
               </div>
 
-              <button onClick={handleNextQuestion} className="w-full bg-white text-black py-5 rounded-2xl font-black border-b-8 border-zinc-300 hover:bg-zinc-100 active:translate-y-2 active:border-b-0 transition-all uppercase tracking-tighter text-xl">
-                {currentQuizQuestion < quiz.length - 1 ? 'Next Challenge' : 'See Results'}
+              <button onClick={handleNextQuestion} className="w-full bg-white text-black py-4 rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm tracking-wide">
+                {currentQuizQuestion < quiz.length - 1 ? 'Next Question' : 'Finish Quiz'}
               </button>
             </div>
           )}
@@ -329,34 +329,34 @@ const ForesightLearningApp = () => {
 
     return (
       <div className="min-h-screen bg-black p-8 flex items-center justify-center">
-        <div className="max-w-2xl w-full bg-zinc-900 rounded-[3rem] p-16 shadow-[0_0_100px_rgba(0,0,0,0.9)] text-center border border-zinc-800 border-b-[12px] border-black">
-          <div className="mb-10 inline-block relative">
+        <div className="max-w-2xl w-full bg-zinc-900 rounded-[2rem] p-12 shadow-2xl text-center border border-zinc-800">
+          <div className="mb-8 inline-block">
             {percentage >= 80 ? (
-              <Trophy className="w-24 h-24 text-amber-400 mx-auto drop-shadow-[0_0_20px_rgba(251,191,36,0.5)]" />
+              <Trophy className="w-16 h-16 text-amber-400 mx-auto drop-shadow-lg" />
             ) : (
-              <span className="text-8xl">👍</span>
+              <Award className="w-16 h-16 text-zinc-400 mx-auto" />
             )}
           </div>
 
-          <h1 className="text-6xl font-black mb-4 text-white tracking-tighter drop-shadow-2xl">
-            {percentage >= 80 ? 'FLAWLESS!' : 'GOOD WORK!'}
+          <h1 className="text-4xl font-light mb-2 text-white tracking-tight">
+            {percentage >= 80 ? 'Module Mastered' : 'Module Complete'}
           </h1>
-          <p className="text-2xl text-zinc-500 mb-12 font-bold tracking-tight">Accuracy: {percentage}%</p>
+          <p className="text-lg text-zinc-500 mb-10 font-light tracking-wide">You scored {quizScore} / {quiz.length} ({percentage}%)</p>
 
           {percentage >= 80 && (
-            <div className="bg-gradient-to-b from-amber-500/10 to-amber-500/5 border border-amber-500/30 rounded-3xl p-10 mb-12">
-              <Award className="w-16 h-16 text-amber-400 mx-auto mb-4 drop-shadow-lg" />
-              <p className="font-black text-amber-400 text-2xl uppercase tracking-tighter">Badge Earned: {product.name} Expert</p>
-              <p className="text-sm text-amber-400/60 mt-3 font-black uppercase tracking-[0.3em]">+125 XP</p>
+            <div className="bg-zinc-800/50 border border-amber-500/20 rounded-2xl p-8 mb-10 shadow-inner">
+              <Star className="w-8 h-8 text-amber-400 mx-auto mb-3" />
+              <p className="font-medium text-amber-400 tracking-wide uppercase text-xs">Expert Badge Unlocked</p>
+              <p className="text-white text-lg font-light mt-1">{product.name} Specialist</p>
             </div>
           )}
 
           <div className="flex gap-4">
-            <button onClick={() => handleStartQuiz(selectedProduct)} className="flex-1 bg-white text-black py-5 rounded-2xl font-black border-b-8 border-zinc-300 hover:bg-zinc-100 active:translate-y-2 active:border-b-0 transition-all uppercase tracking-tighter">
-              Try Again
+            <button onClick={() => handleStartQuiz(selectedProduct)} className="flex-1 bg-zinc-800 text-white py-4 rounded-xl font-medium hover:bg-zinc-700 transition-all text-sm">
+              Retake Quiz
             </button>
-            <button onClick={() => setCurrentView('home')} className="flex-1 bg-zinc-800 text-white py-5 rounded-2xl font-black border-b-8 border-black hover:bg-zinc-700 active:translate-y-2 active:border-b-0 transition-all uppercase tracking-tighter">
-              Main Menu
+            <button onClick={() => setCurrentView('home')} className="flex-1 bg-white text-black py-4 rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm">
+              Return Home
             </button>
           </div>
         </div>
@@ -370,38 +370,38 @@ const ForesightLearningApp = () => {
 
     return (
       <div className="min-h-screen bg-black p-8">
-        <button onClick={() => setCurrentView('home')} className="mb-10 text-zinc-500 hover:text-white flex items-center gap-3 font-black uppercase tracking-widest text-sm transition-all hover:-translate-x-2">
-          ← Dashboard
+        <button onClick={() => setCurrentView('home')} className="mb-12 text-zinc-500 hover:text-white flex items-center gap-2 font-light text-sm tracking-widest uppercase transition-all">
+          <ChevronRight className="w-4 h-4 rotate-180" /> Back
         </button>
 
-        <div className={`bg-gradient-to-br ${product.color} rounded-[3rem] p-20 mb-12 text-white text-center shadow-2xl border-b-[12px] border-black/30`}>
-          <h1 className="text-7xl font-black mb-6 tracking-tighter drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">{product.name}</h1>
-          <p className="text-2xl font-bold opacity-80 tracking-tight">{product.tagline}</p>
+        <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-16 mb-12 text-white text-center shadow-2xl border border-white/5`}>
+          <h1 className="text-5xl font-light mb-4 tracking-tight">{product.name}</h1>
+          <p className="text-xl font-light opacity-60 tracking-wide">{product.tagline}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <button onClick={() => handleStartLearning(selectedProduct)} className="bg-zinc-900 rounded-[3rem] p-12 shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:-translate-y-2 transition-all text-left relative group border border-zinc-800 border-b-[12px] border-black">
-            {hasCompletedLearning && <CheckCircle className="w-10 h-10 text-emerald-400 absolute top-10 right-10 drop-shadow-lg" />}
-            <div className="bg-white w-20 h-20 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-xl">
-              <BookOpen className="w-10 h-10 text-black" />
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <button onClick={() => handleStartLearning(selectedProduct)} className="bg-zinc-900 rounded-[2rem] p-10 shadow-2xl hover:shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:-translate-y-1 transition-all text-left relative group border border-zinc-800">
+            {hasCompletedLearning && <CheckCircle className="w-6 h-6 text-emerald-400 absolute top-10 right-10" />}
+            <div className="bg-white/5 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+              <BookOpen className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-4xl font-black text-white mb-4 tracking-tighter group-hover:text-emerald-400 transition-colors uppercase">Training</h3>
-            <p className="text-zinc-500 mb-8 font-bold text-lg leading-snug">Interactive product training & technical deep-dive.</p>
-            <div className="flex items-center gap-2 text-emerald-500/80 font-black text-xs tracking-widest uppercase">
-              <Zap className="w-5 h-5" />
-              <span>10 XP PER STEP</span>
+            <h3 className="text-2xl font-light text-white mb-2">Training</h3>
+            <p className="text-zinc-500 mb-6 font-light text-sm">Review core concepts and features.</p>
+            <div className="flex items-center gap-2 text-zinc-600 font-medium text-[10px] tracking-widest uppercase">
+              <Zap className="w-3 h-3" />
+              <span>Earn 50 XP</span>
             </div>
           </button>
 
-          <button onClick={() => hasCompletedLearning && handleStartQuiz(selectedProduct)} disabled={!hasCompletedLearning} className={`rounded-[3rem] p-12 shadow-2xl text-left relative group border border-zinc-800 border-b-[12px] ${hasCompletedLearning ? 'bg-zinc-900 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:-translate-y-2 border-black transition-all cursor-pointer' : 'bg-zinc-950 border-zinc-900 cursor-not-allowed opacity-40'}`}>
-            <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-8 shadow-xl ${hasCompletedLearning ? 'bg-white group-hover:scale-110 group-hover:-rotate-3 transition-transform' : 'bg-zinc-800'}`}>
-              <Brain className="w-10 h-10 text-black" />
+          <button onClick={() => hasCompletedLearning && handleStartQuiz(selectedProduct)} disabled={!hasCompletedLearning} className={`rounded-[2rem] p-10 shadow-2xl text-left relative group border ${hasCompletedLearning ? 'bg-zinc-900 hover:shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:-translate-y-1 border-zinc-800 cursor-pointer' : 'bg-zinc-950 border-zinc-900 cursor-not-allowed opacity-40'}`}>
+            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${hasCompletedLearning ? 'bg-white/5 group-hover:bg-white/10' : 'bg-zinc-900'}`}>
+              <Brain className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-4xl font-black text-white mb-4 tracking-tighter group-hover:text-emerald-400 transition-colors uppercase">Examination</h3>
-            <p className="text-zinc-500 mb-8 font-bold text-lg leading-snug">Test your knowledge to unlock your official badge.</p>
-            <div className={`flex items-center gap-2 font-black text-xs tracking-widest uppercase ${hasCompletedLearning ? 'text-emerald-500/80' : 'text-zinc-700'}`}>
-              <Zap className="w-5 h-5" />
-              <span>125 XP POTENTIAL</span>
+            <h3 className="text-2xl font-light text-white mb-2">Certification</h3>
+            <p className="text-zinc-500 mb-6 font-light text-sm">Pass the quiz to earn your specialist badge.</p>
+            <div className="flex items-center gap-2 text-zinc-600 font-medium text-[10px] tracking-widest uppercase">
+              <Zap className="w-3 h-3" />
+              <span>Earn 100 XP</span>
             </div>
           </button>
         </div>
@@ -410,42 +410,34 @@ const ForesightLearningApp = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black p-8">
+    <div className="min-h-screen bg-black p-8 font-sans">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-zinc-900/40 backdrop-blur-3xl rounded-[3rem] p-12 mb-12 shadow-[0_0_100px_rgba(0,0,0,0.8)] border border-zinc-800 border-b-[12px] border-black">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="flex-1">
-              <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-4 leading-none">
-                <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-200 to-zinc-500 drop-shadow-2xl">
-                  Foresight Sports
-                </span>
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-200 to-zinc-500 drop-shadow-2xl">
-                  Europe Academy
+        <div className="bg-zinc-900/40 backdrop-blur-3xl rounded-[2.5rem] p-10 mb-12 shadow-2xl border border-zinc-800/50">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div className="py-2">
+              <h1 className="text-5xl font-light tracking-tighter mb-2 leading-none">
+                <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-100 to-zinc-400 drop-shadow-sm">
+                  Foresight Sports Europe Academy
                 </span>
               </h1>
-              <p className="text-zinc-500 text-xl font-bold tracking-tight">The ultimate product mastery platform.</p>
+              <p className="text-zinc-500 text-lg font-light tracking-wide">Premium Product Mastery & Certification</p>
             </div>
-            <div className="text-right w-full md:w-auto">
-              <div className="text-5xl font-black text-white mb-2 drop-shadow-lg uppercase tracking-tighter">Level {userProgress.level}</div>
-              <div className="text-sm text-emerald-500 mb-4 font-black tracking-[0.4em] uppercase">{userProgress.xp} Total XP</div>
-              <div className="w-full md:w-64 bg-zinc-800 rounded-full h-4 p-1 shadow-inner overflow-hidden border border-zinc-700">
-                <div className="bg-gradient-to-r from-emerald-500 via-cyan-400 to-emerald-500 h-full rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(16,185,129,0.5)]" style={{ width: `${(userProgress.xp % 100)}%` }} />
+            <div className="text-right">
+              <div className="text-3xl font-light text-white mb-1 tracking-tight">Lvl {userProgress.level}</div>
+              <div className="text-[10px] text-emerald-400/80 mb-3 font-medium tracking-[0.3em] uppercase">{userProgress.xp} XP Earned</div>
+              <div className="w-48 bg-zinc-800 rounded-full h-1 shadow-inner overflow-hidden border border-zinc-800">
+                <div className="bg-gradient-to-r from-emerald-500 to-cyan-400 h-full rounded-full transition-all duration-1000 shadow-[0_0_8px_rgba(16,185,129,0.3)]" style={{ width: `${(userProgress.xp % 100)}%` }} />
               </div>
             </div>
           </div>
 
           {userProgress.badges.length > 0 && (
-            <div className="mt-12 pt-10 border-t border-zinc-800/50">
-              <p className="text-xs font-black mb-6 flex items-center gap-3 text-zinc-500 uppercase tracking-[0.4em]">
-                <Trophy className="w-5 h-5 text-amber-500" />
-                Specialist Badges
-              </p>
-              <div className="flex gap-4 flex-wrap">
+            <div className="mt-8 pt-8 border-t border-zinc-800/40">
+              <div className="flex gap-3 flex-wrap">
                 {userProgress.badges.map((badge, idx) => (
-                  <span key={idx} className="bg-gradient-to-b from-amber-500/20 to-zinc-900 border border-amber-500/40 text-amber-400 px-6 py-3 rounded-2xl text-sm font-black flex items-center gap-3 tracking-tighter shadow-2xl animate-in zoom-in-50 duration-500">
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    {products.find(p => p.id === badge)?.name} EXPERT
+                  <span key={idx} className="bg-zinc-800/50 border border-amber-500/20 text-amber-500/80 px-4 py-1.5 rounded-full text-[10px] font-medium flex items-center gap-2 tracking-widest uppercase shadow-lg">
+                    <Star className="w-3 h-3 fill-amber-500" />
+                    {products.find(p => p.id === badge)?.name} Specialist
                   </span>
                 ))}
               </div>
@@ -453,30 +445,30 @@ const ForesightLearningApp = () => {
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {products.map(product => (
-            <div key={product.id} onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} className={`bg-gradient-to-br ${product.color} rounded-[2.5rem] p-10 cursor-pointer transition-all hover:-translate-y-3 hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.8)] border-b-[10px] border-black/40 active:translate-y-1 active:border-b-0 group relative overflow-hidden`}>
-              <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <h3 className="text-4xl font-black text-white mb-2 tracking-tighter drop-shadow-xl uppercase">{product.name}</h3>
-              <p className="text-white/60 text-sm font-bold tracking-tight mb-8">{product.tagline}</p>
-              <div className="flex items-center gap-2 text-white/30 group-hover:text-white transition-colors">
-                 <span className="text-xs font-black uppercase tracking-widest">Training Mode</span>
-                 <ChevronRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+            <div key={product.id} onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-8 cursor-pointer transition-all hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.6)] hover:shadow-white/5 border border-white/5 active:scale-[0.98] group relative overflow-hidden`}>
+              <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <h3 className="text-3xl font-light text-white mb-1 tracking-tight drop-shadow-md">{product.name}</h3>
+              <p className="text-white/60 text-xs font-light tracking-wide mb-8">{product.tagline}</p>
+              <div className="flex items-center gap-1 text-white/40 group-hover:text-white transition-colors">
+                 <span className="text-[10px] font-medium uppercase tracking-widest">Open Module</span>
+                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-zinc-900/50 rounded-[3rem] p-12 border border-zinc-800 border-b-8 border-black">
-          <h3 className="text-3xl font-black mb-8 flex items-center gap-4 text-white uppercase tracking-tighter">
-            <Lightbulb className="w-8 h-8 text-amber-400" />
-            Briefing
+        <div className="bg-zinc-900/40 rounded-[2.5rem] p-10 border border-zinc-800/50 shadow-2xl">
+          <h3 className="text-lg font-light mb-8 flex items-center gap-3 text-white tracking-widest uppercase">
+            <Lightbulb className="w-5 h-5 text-amber-400" />
+            Academy Guidelines
           </h3>
-          <ul className="grid md:grid-cols-2 gap-6 text-zinc-400 font-bold text-lg tracking-tight">
-            <li className="flex gap-4"><span className="text-emerald-500 font-black tracking-widest">I.</span> Master core software before hardware certifications.</li>
-            <li className="flex gap-4"><span className="text-emerald-500 font-black tracking-widest">II.</span> Complete all steps to qualify for the examination.</li>
-            <li className="flex gap-4"><span className="text-emerald-500 font-black tracking-widest">III.</span> Earn badges to demonstrate live platform expertise.</li>
-            <li className="flex gap-4"><span className="text-emerald-500 font-black tracking-widest">IV.</span> Use the Review mode anytime to refresh your knowledge.</li>
+          <ul className="grid md:grid-cols-2 gap-6 text-zinc-500 font-light text-sm leading-relaxed tracking-wide">
+            <li className="flex gap-4">01. Complete the interactive Training Module for each product first.</li>
+            <li className="flex gap-4">02. The Certification Quiz requires a 100% score to earn a specialist badge.</li>
+            <li className="flex gap-4">03. XP is awarded for all learning activities and successful quizzes.</li>
+            <li className="flex gap-4">04. Maintain your certification by reviewing new features as they release.</li>
           </ul>
         </div>
       </div>
