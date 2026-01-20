@@ -618,9 +618,10 @@ const ForesightLearningApp = () => {
             <button 
               key={product.id} 
               onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} 
-              className={`bg-gradient-to-br ${product.color} rounded-3xl p-8 cursor-pointer transform transition-all duration-300 shadow-[0_8px_16px_rgba(0,0,0,0.4),0_4px_8px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.5),0_0_40px_rgba(255,255,255,0.2)] hover:-translate-y-1 active:translate-y-0 active:shadow-[0_4px_12px_rgba(0,0,0,0.4)] relative overflow-hidden group text-left`}
+              className={`bg-gradient-to-br ${product.color} rounded-3xl p-8 cursor-pointer transform transition-all duration-300 shadow-2xl hover:shadow-[0_20px_50px_rgba(255,255,255,0.3)] hover:-translate-y-2 hover:scale-105 active:translate-y-0 active:scale-100 relative overflow-hidden group text-left border-2 border-white/10`}
               style={{
-                transitionDelay: `${index * 50}ms`
+                transitionDelay: `${index * 50}ms`,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1)'
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
