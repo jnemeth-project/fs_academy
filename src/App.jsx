@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Trophy, Zap, CheckCircle, XCircle, Award, ChevronRight, RotateCcw, BookOpen, Brain, Lightbulb, ArrowRight, Sparkles, Star } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Trophy, Zap, CheckCircle, XCircle, Award, ChevronRight, RotateCcw, BookOpen, Brain, Lightbulb, ArrowRight, Sparkles, Star, Home } from 'lucide-react';
 
 const ForesightLearningApp = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -18,6 +18,25 @@ const ForesightLearningApp = () => {
   const [quizScore, setQuizScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
+  
+  // Animation states
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
+  const [blurBackground, setBlurBackground] = useState(false);
+
+  useEffect(() => {
+    // Animation sequence
+    const headerTimer = setTimeout(() => setShowHeader(true), 500);
+    const buttonsTimer = setTimeout(() => setShowButtons(true), 1200);
+    const blurTimer = setTimeout(() => setBlurBackground(true), 2000);
+    
+    return () => {
+      clearTimeout(headerTimer);
+      clearTimeout(buttonsTimer);
+      clearTimeout(blurTimer);
+    };
+  }, []);
 
   const products = [
     { id: 'fsx2020', name: 'FSX 2020', color: 'from-slate-700 to-slate-900', tagline: 'Premium Golf Simulation' },
@@ -98,8 +117,7 @@ const ForesightLearningApp = () => {
       { title: 'Recalibration Step 2: Calibration Tool', text: 'Download latest Overhead Calibration Tool from support site (support.foresightsports.com/support/hardware/falcon). Launch the tool and follow on-screen prompts. Before starting, ensure the hitting area is clear of reflective objects and lighting is consistent. Using calibration wand, move through requested positions within hitting area as directed. Keep wand visible to cameras and move at steady pace. Let the tool run to completion and save new calibration.' },
       { title: 'Calibration Best Practices', text: 'During calibration, hitting area must be clear of reflective objects to avoid interference with camera tracking. Lighting should be consistent throughout the process. Move calibration wand at steady pace, waist height at a 45 degree angle through all requested positions, keeping it visible to all four cameras. After calibration completes, restart the device and test ball/club tracking to confirm lock and accuracy are restored. Watch Falcon Calibration Video guide for visual instructions.' },
       { title: 'Support Contact Information', text: 'If troubleshooting steps do not resolve your issue, contact support@foresightsports.eu with detailed information: What troubleshooting steps have you tried? Has the feature worked before? Can multiple people replicate the issue? What software versions are you testing? Include Falcon firmware version and serial number. Providing comprehensive details helps support team diagnose and resolve issues faster. Video guides and documentation available at support.foresightsports.com.' }
-
-],
+    ],
     gchawk: [
       { title: 'What is GCHawk?', text: 'GCHawk is flagship ceiling-mounted launch monitor - gold standard for high-end simulators and commercial facilities. Same Quadrascopic system as GCQuad - four cameras for tour-level accuracy. Hands-free overhead design never gets in way!' },
       { title: 'Premium Hitting Zone', text: 'Features 52" x 30" hitting area - one of largest in industry! Supports all clubs including putter. Both left and right-handed players without repositioning. Commercial-grade durability for high-volume use!' },
@@ -128,7 +146,6 @@ const ForesightLearningApp = () => {
       { question: 'What is the minimum FSX Play version that supports Swing Camera?', answers: ['1.8.0.12', '1.9.0.5', '1.10.0.10', '2.0.0.0'], correct: 2, explanation: 'Swing Camera is supported only in FSX Play version 1.10.0.10 or newer.' },
       { question: 'Where can you download the latest version of FSX Play', answers: ['FSX Play auto updates', 'It doesn\'t need updating', 'The Support website online', 'FSX Live account online'], correct: 2, explanation: 'The latest version can be downloaded from https://support.foresightsports.com/support/fsx-play' },
       { question: 'Select the correct URL for the support website', answers: ['https://support.foresightsports.com/support', 'https://support.foresightsports.org', 'https://info.foresightsports.com/support', 'https://help.foresightsports.eu'], correct: 0, explanation: 'All the latest versions can be downloaded from https://support.foresightsports.com/support' }
-
     ],
     fairgrounds: [
       { question: 'Fairgrounds cost with FSX 2020?', answers: ['$299/year', '$99 one-time', 'Free - included', '$49/year'], correct: 2, explanation: 'Fairgrounds FREE with FSX 2020!' },
@@ -162,8 +179,6 @@ const ForesightLearningApp = () => {
       { question: 'What should you reapply if Falcon picks up ball data but not club data?', answers: ['Calibration wand', 'Reflective markers', 'Ethernet cable', 'Firmware patch'], correct: 1, explanation: 'Reapply reflective markers first! This is the #1 fix for missing club data.' },
       { question: 'Can updating Falcon firmware help resolve missing club data issues?', answers: ['No, firmware only affects connection', 'Yes, firmware updates can fix data issues', 'Only for ball data', 'Firmware never affects tracking'], correct: 1, explanation: 'Yes! Updating firmware is step 2 after reapplying markers for missing club data.' },
       { question: 'Is recalibration only required when Falcon is first installed?', answers: ['Yes, one-time only', 'No, needed when conditions change', 'Only after firmware updates', 'Never required'], correct: 1, explanation: 'Recalibration needed when: device loses lock, hitting area changes, or device is serviced/moved!' },
-    
-      
     ],
     gchawk: [
       { question: 'GCHawk WiFi password?', answers: ['GCHAWK2024', 'FSSPORTS', 'foresight123', 'No password'], correct: 1, explanation: 'Default WiFi password is FSSPORTS!' },
@@ -239,6 +254,35 @@ const ForesightLearningApp = () => {
     }
   };
 
+  const exitToMainMenu = () => {
+    setCurrentView('home');
+    setLearningMode(false);
+    setQuizMode(false);
+    setSelectedProduct(null);
+  };
+
+  // Premium Button Component
+  const PremiumButton = ({ onClick, children, variant = 'primary', icon: Icon, className = '' }) => {
+    const baseStyles = "relative px-8 py-4 rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-3 text-sm tracking-wide overflow-hidden group";
+    
+    const variantStyles = {
+      primary: "bg-gradient-to-b from-white to-gray-100 text-black shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.25),0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_2px_8px_rgba(0,0,0,0.2)]",
+      secondary: "bg-gradient-to-b from-zinc-700 to-zinc-800 text-white shadow-[0_4px_12px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.4),0_0_30px_rgba(100,100,100,0.2)] hover:-translate-y-0.5 active:translate-y-0",
+      ghost: "bg-transparent border-2 border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+    };
+
+    return (
+      <button 
+        onClick={onClick}
+        className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      >
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 group-hover:translate-x-full transition-all duration-700 -translate-x-full"></span>
+        {Icon && <Icon className="w-5 h-5 relative z-10" />}
+        <span className="relative z-10">{children}</span>
+      </button>
+    );
+  };
+
   if (currentView === 'learning') {
     const lessons = learningContent[selectedProduct];
     const lesson = lessons[currentLesson];
@@ -246,39 +290,60 @@ const ForesightLearningApp = () => {
     const progress = ((currentLesson + 1) / lessons.length) * 100;
 
     return (
-      <div className="min-h-screen bg-black p-4 md:p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] p-6 mb-6 shadow-2xl border border-zinc-800">
+      <div className="min-h-screen bg-black p-4 md:p-8 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="fixed inset-0 bg-cover bg-center transition-all duration-1000"
+          style={{
+            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            filter: 'blur(8px) brightness(0.3)'
+          }}
+        />
+        
+        <div className="relative z-10 max-w-4xl mx-auto">
+          {/* Exit Button */}
+          <div className="mb-6">
+            <PremiumButton onClick={exitToMainMenu} variant="ghost" icon={Home}>
+              Exit to Main Menu
+            </PremiumButton>
+          </div>
+
+          <div className="bg-zinc-900/80 backdrop-blur-xl rounded-3xl p-6 mb-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-zinc-800">
             <div className="flex justify-between items-center mb-4">
               <span className="text-xs font-medium tracking-wider text-zinc-400 uppercase">Lesson {currentLesson + 1} of {lessons.length}</span>
               <span className="text-xs font-medium tracking-wider text-emerald-400 uppercase">+10 XP</span>
             </div>
-            <div className="w-full bg-zinc-800 rounded-full h-1.5">
-              <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 h-1.5 rounded-full transition-all" style={{ width: `${progress}%` }} />
+            <div className="w-full bg-zinc-800 rounded-full h-2 shadow-inner">
+              <div 
+                className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 h-2 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(52,211,153,0.5)]" 
+                style={{ width: `${progress}%` }} 
+              />
             </div>
           </div>
 
-          <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-12 mb-6 text-white shadow-2xl`}>
-            <h1 className="text-5xl font-light tracking-tight mb-3">{product.name}</h1>
-            <h2 className="text-xl font-light opacity-80 tracking-wide">{lesson.title}</h2>
+          <div className={`bg-gradient-to-br ${product.color} rounded-3xl p-12 mb-6 text-white shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden`}>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50"></div>
+            <h1 className="text-5xl font-light tracking-tight mb-3 relative z-10">{product.name}</h1>
+            <h2 className="text-xl font-light opacity-80 tracking-wide relative z-10">{lesson.title}</h2>
           </div>
 
-          <div className="bg-white rounded-[2rem] p-12 shadow-2xl">
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
             <p className="text-zinc-900 text-base leading-relaxed mb-8 font-normal">{lesson.text}</p>
 
             <div className="flex gap-4 pt-8 border-t border-zinc-200">
               {currentLesson > 0 && (
-                <button onClick={() => setCurrentLesson(currentLesson - 1)} className="px-8 py-4 bg-zinc-100 text-zinc-900 rounded-2xl font-medium hover:bg-zinc-200 transition-all text-sm tracking-wide">
+                <PremiumButton onClick={() => setCurrentLesson(currentLesson - 1)} variant="secondary">
                   ← Previous
-                </button>
+                </PremiumButton>
               )}
-              <button onClick={handleNextLesson} className="flex-1 bg-black text-white py-4 rounded-2xl font-medium hover:bg-zinc-900 transition-all flex items-center justify-center gap-3 text-sm tracking-wide">
-                {currentLesson < lessons.length - 1 ? (
-                  <>Next Lesson <ArrowRight className="w-4 h-4" /></>
-                ) : (
-                  <>Complete +50 XP <Sparkles className="w-4 h-4" /></>
-                )}
-              </button>
+              <PremiumButton 
+                onClick={handleNextLesson} 
+                variant="primary" 
+                icon={currentLesson < lessons.length - 1 ? ArrowRight : Sparkles}
+                className="flex-1"
+              >
+                {currentLesson < lessons.length - 1 ? 'Next Lesson' : 'Complete +50 XP'}
+              </PremiumButton>
             </div>
           </div>
         </div>
@@ -292,56 +357,75 @@ const ForesightLearningApp = () => {
     const isCorrect = selectedAnswer === question.correct;
 
     return (
-      <div className="min-h-screen bg-black p-8 flex items-center justify-center">
-        <div className="max-w-2xl w-full bg-zinc-900 rounded-[2rem] p-12 shadow-2xl border border-zinc-800">
-          <div className="flex justify-between items-center mb-8">
-            <span className="text-xs font-medium tracking-wider text-zinc-400 uppercase">Question {currentQuizQuestion + 1} of {quiz.length}</span>
-            <span className="text-xs font-medium tracking-wider text-emerald-400 uppercase">Score: {quizScore}/{quiz.length}</span>
+      <div className="min-h-screen bg-black p-8 flex items-center justify-center relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="fixed inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            filter: 'blur(8px) brightness(0.3)'
+          }}
+        />
+
+        <div className="relative z-10 w-full max-w-2xl">
+          {/* Exit Button */}
+          <div className="mb-6">
+            <PremiumButton onClick={exitToMainMenu} variant="ghost" icon={Home}>
+              Exit to Main Menu
+            </PremiumButton>
           </div>
 
-          <h2 className="text-2xl font-light mb-8 text-white leading-relaxed">{question.question}</h2>
+          <div className="bg-zinc-900/90 backdrop-blur-xl rounded-3xl p-12 shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-zinc-800">
+            <div className="flex justify-between items-center mb-8">
+              <span className="text-xs font-medium tracking-wider text-zinc-400 uppercase">Question {currentQuizQuestion + 1} of {quiz.length}</span>
+              <span className="text-xs font-medium tracking-wider text-emerald-400 uppercase">Score: {quizScore}/{quiz.length}</span>
+            </div>
 
-          <div className="space-y-3 mb-8">
-            {question.answers.map((answer, idx) => (
-              <button
-                key={idx}
-                onClick={() => !showFeedback && handleAnswerSelect(idx)}
-                disabled={showFeedback}
-                className={`w-full p-5 rounded-2xl text-left font-light transition-all text-sm ${
-                  showFeedback
-                    ? idx === question.correct
-                      ? 'bg-emerald-500/20 border border-emerald-500 text-white'
-                      : idx === selectedAnswer
-                      ? 'bg-rose-500/20 border border-rose-500 text-white'
-                      : 'bg-zinc-800 text-zinc-400 border border-zinc-800'
-                    : selectedAnswer === idx
-                    ? 'bg-white text-black border border-white'
-                    : 'bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  {showFeedback && idx === question.correct && <CheckCircle className="w-5 h-5 text-emerald-400" />}
-                  {showFeedback && idx === selectedAnswer && idx !== question.correct && <XCircle className="w-5 h-5 text-rose-400" />}
-                  <span>{answer}</span>
+            <h2 className="text-2xl font-light mb-8 text-white leading-relaxed">{question.question}</h2>
+
+            <div className="space-y-3 mb-8">
+              {question.answers.map((answer, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => !showFeedback && handleAnswerSelect(idx)}
+                  disabled={showFeedback}
+                  className={`w-full p-5 rounded-2xl text-left font-light transition-all duration-300 text-sm relative overflow-hidden group ${
+                    showFeedback
+                      ? idx === question.correct
+                        ? 'bg-emerald-500/20 border-2 border-emerald-500 text-white shadow-[0_0_20px_rgba(52,211,153,0.3)]'
+                        : idx === selectedAnswer
+                        ? 'bg-rose-500/20 border-2 border-rose-500 text-white shadow-[0_0_20px_rgba(244,63,94,0.3)]'
+                        : 'bg-zinc-800 text-zinc-400 border-2 border-zinc-800'
+                      : selectedAnswer === idx
+                      ? 'bg-gradient-to-b from-white to-gray-100 text-black border-2 border-white shadow-[0_4px_12px_rgba(255,255,255,0.3)]'
+                      : 'bg-gradient-to-b from-zinc-700 to-zinc-800 hover:from-zinc-600 hover:to-zinc-700 text-white border-2 border-zinc-700 shadow-[0_4px_12px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.4),0_0_20px_rgba(100,100,100,0.2)]'
+                  }`}
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10 group-hover:translate-x-full transition-all duration-700 -translate-x-full"></span>
+                  <div className="flex items-center gap-3 relative z-10">
+                    {showFeedback && idx === question.correct && <CheckCircle className="w-5 h-5 text-emerald-400" />}
+                    {showFeedback && idx === selectedAnswer && idx !== question.correct && <XCircle className="w-5 h-5 text-rose-400" />}
+                    <span>{answer}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {showFeedback && (
+              <>
+                <div className={`p-6 rounded-2xl mb-8 shadow-inner ${isCorrect ? 'bg-emerald-500/10 border-2 border-emerald-500/30' : 'bg-cyan-500/10 border-2 border-cyan-500/30'}`}>
+                  <p className={`font-medium mb-2 flex items-center gap-2 text-sm tracking-wide ${isCorrect ? 'text-emerald-400' : 'text-cyan-400'}`}>
+                    {isCorrect ? <><Trophy className="w-4 h-4" /> Correct!</> : <><Lightbulb className="w-4 h-4" /> Learning Moment</>}
+                  </p>
+                  <p className="text-zinc-300 text-sm font-light leading-relaxed">{question.explanation}</p>
                 </div>
-              </button>
-            ))}
+
+                <PremiumButton onClick={handleNextQuestion} variant="primary" className="w-full">
+                  {currentQuizQuestion < quiz.length - 1 ? 'Next Question →' : 'See Results'}
+                </PremiumButton>
+              </>
+            )}
           </div>
-
-          {showFeedback && (
-            <>
-              <div className={`p-6 rounded-2xl mb-8 ${isCorrect ? 'bg-emerald-500/10 border border-emerald-500/30' : 'bg-cyan-500/10 border border-cyan-500/30'}`}>
-                <p className={`font-medium mb-2 flex items-center gap-2 text-sm tracking-wide ${isCorrect ? 'text-emerald-400' : 'text-cyan-400'}`}>
-                  {isCorrect ? <><Trophy className="w-4 h-4" /> Correct!</> : <><Lightbulb className="w-4 h-4" /> Learning Moment</>}
-                </p>
-                <p className="text-zinc-300 text-sm font-light leading-relaxed">{question.explanation}</p>
-              </div>
-
-              <button onClick={handleNextQuestion} className="w-full bg-white text-black py-4 rounded-2xl font-medium hover:bg-zinc-100 transition-all text-sm tracking-wide">
-                {currentQuizQuestion < quiz.length - 1 ? 'Next Question →' : 'See Results'}
-              </button>
-            </>
-          )}
         </div>
       </div>
     );
@@ -353,31 +437,45 @@ const ForesightLearningApp = () => {
     const product = products.find(p => p.id === selectedProduct);
 
     return (
-      <div className="min-h-screen bg-black p-8 flex items-center justify-center">
-        <div className="max-w-2xl w-full bg-zinc-900 rounded-[2rem] p-12 shadow-2xl text-center border border-zinc-800">
+      <div className="min-h-screen bg-black p-8 flex items-center justify-center relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="fixed inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            filter: 'blur(8px) brightness(0.3)'
+          }}
+        />
+
+        <div className="max-w-2xl w-full bg-zinc-900/90 backdrop-blur-xl rounded-3xl p-12 shadow-[0_20px_60px_rgba(0,0,0,0.6)] text-center border border-zinc-800 relative z-10">
           <div className="mb-8">
-            {percentage >= 80 ? <Trophy className="w-20 h-20 text-amber-400 mx-auto" /> : <span className="text-6xl">👍</span>}
+            {percentage >= 80 ? (
+              <Trophy className="w-20 h-20 text-amber-400 mx-auto drop-shadow-[0_0_20px_rgba(251,191,36,0.5)]" />
+            ) : (
+              <span className="text-6xl">👍</span>
+            )}
           </div>
 
-          <h1 className="text-5xl font-light mb-6 text-white tracking-tight">{percentage >= 80 ? 'Excellent!' : percentage >= 50 ? 'Good Job!' : percentage > 0 ? 'Keep Learning!' : 'Better luck next time!'}</h1>
+          <h1 className="text-5xl font-light mb-6 text-white tracking-tight">
+            {percentage >= 80 ? 'Excellent!' : percentage >= 50 ? 'Good Job!' : percentage > 0 ? 'Keep Learning!' : 'Better luck next time!'}
+          </h1>
           <p className="text-xl text-zinc-400 mb-8 font-light">You scored {quizScore} out of {quiz.length} ({percentage}%)</p>
 
           {percentage >= 80 && (
-            <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-8 mb-8">
-              <Award className="w-10 h-10 text-amber-400 mx-auto mb-3" />
+            <div className="bg-amber-500/10 border-2 border-amber-500/30 rounded-2xl p-8 mb-8 shadow-[0_0_30px_rgba(251,191,36,0.2)]">
+              <Award className="w-10 h-10 text-amber-400 mx-auto mb-3 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]" />
               <p className="font-medium text-amber-400 tracking-wide">Badge Earned: {product.name} Expert!</p>
               <p className="text-xs text-amber-400/70 mt-2 uppercase tracking-wider">+125 XP Total</p>
             </div>
           )}
 
           <div className="flex gap-4">
-            <button onClick={() => handleStartQuiz(selectedProduct)} className="flex-1 bg-white text-black py-4 rounded-2xl font-medium hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 text-sm tracking-wide">
-              <RotateCcw className="w-4 h-4" />
+            <PremiumButton onClick={() => handleStartQuiz(selectedProduct)} variant="primary" icon={RotateCcw} className="flex-1">
               Retake Quiz
-            </button>
-            <button onClick={() => setCurrentView('home')} className="flex-1 bg-zinc-800 text-white py-4 rounded-2xl font-medium hover:bg-zinc-700 transition-all text-sm tracking-wide">
+            </PremiumButton>
+            <PremiumButton onClick={() => setCurrentView('home')} variant="secondary" className="flex-1">
               Back to Academy
-            </button>
+            </PremiumButton>
           </div>
         </div>
       </div>
@@ -389,75 +487,128 @@ const ForesightLearningApp = () => {
     const hasCompletedLearning = userProgress.completedLearning.includes(selectedProduct);
 
     return (
-      <div className="min-h-screen bg-black p-8">
-        <button onClick={() => setCurrentView('home')} className="mb-8 text-zinc-400 hover:text-white flex items-center gap-2 font-light text-sm tracking-wide transition-colors">
-          ← Back to Academy
-        </button>
+      <div className="min-h-screen bg-black p-8 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="fixed inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            filter: 'blur(8px) brightness(0.3)'
+          }}
+        />
 
-        <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-16 mb-10 text-white text-center shadow-2xl`}>
-          <h1 className="text-6xl font-light mb-4 tracking-tight">{product.name}</h1>
-          <p className="text-xl font-light opacity-70 tracking-wide">{product.tagline}</p>
-        </div>
+        <div className="relative z-10">
+          <PremiumButton onClick={() => setCurrentView('home')} variant="ghost" icon={Home} className="mb-8">
+            Back to Academy
+          </PremiumButton>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <button onClick={() => handleStartLearning(selectedProduct)} className="bg-zinc-900 rounded-[2rem] p-10 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.1)] hover:scale-[1.02] transition-all text-left relative group border border-zinc-800">
-            {hasCompletedLearning && <CheckCircle className="w-8 h-8 text-emerald-400 absolute top-8 right-8" />}
-            <div className="bg-white w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <BookOpen className="w-8 h-8 text-black" />
-            </div>
-            <h3 className="text-3xl font-light text-white mb-3 tracking-tight">{hasCompletedLearning ? 'Review' : 'Start'} Learning</h3>
-            <p className="text-zinc-400 mb-4 font-light text-sm">Learn the fundamentals interactively</p>
-            <div className="flex items-center gap-2 text-zinc-400 font-light text-xs tracking-wide">
-              <Zap className="w-4 h-4" />
-              <span>Earn 10 XP per lesson</span>
-            </div>
-          </button>
+          <div className={`bg-gradient-to-br ${product.color} rounded-3xl p-16 mb-10 text-white text-center shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden`}>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50"></div>
+            <h1 className="text-6xl font-light mb-4 tracking-tight relative z-10">{product.name}</h1>
+            <p className="text-xl font-light opacity-70 tracking-wide relative z-10">{product.tagline}</p>
+          </div>
 
-          <button onClick={() => hasCompletedLearning && handleStartQuiz(selectedProduct)} disabled={!hasCompletedLearning} className={`rounded-[2rem] p-10 shadow-2xl text-left relative group border border-zinc-800 ${hasCompletedLearning ? 'bg-zinc-900 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.1)] hover:scale-[1.02] transition-all cursor-pointer' : 'bg-zinc-950 cursor-not-allowed opacity-40'}`}>
-            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${hasCompletedLearning ? 'bg-white group-hover:scale-110 transition-transform' : 'bg-zinc-800'}`}>
-              <Brain className="w-8 h-8 text-black" />
-            </div>
-            <h3 className="text-3xl font-light text-white mb-3 tracking-tight">Take Quiz</h3>
-            <p className="text-zinc-400 mb-4 font-light text-sm">{hasCompletedLearning ? 'Test your knowledge' : 'Complete learning first'}</p>
-            <div className={`flex items-center gap-2 font-light text-xs tracking-wide ${hasCompletedLearning ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              <Zap className="w-4 h-4" />
-              <span>Earn up to 125 XP</span>
-            </div>
-          </button>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <button 
+              onClick={() => handleStartLearning(selectedProduct)} 
+              className="bg-zinc-900/80 backdrop-blur-xl rounded-3xl p-10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.1)] hover:-translate-y-1 transition-all duration-300 text-left relative group border border-zinc-800"
+            >
+              {hasCompletedLearning && <CheckCircle className="w-8 h-8 text-emerald-400 absolute top-8 right-8 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]" />}
+              <div className="bg-gradient-to-b from-white to-gray-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
+                <BookOpen className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="text-3xl font-light text-white mb-3 tracking-tight">{hasCompletedLearning ? 'Review' : 'Start'} Learning</h3>
+              <p className="text-zinc-400 mb-4 font-light text-sm">Learn the fundamentals interactively</p>
+              <div className="flex items-center gap-2 text-zinc-400 font-light text-xs tracking-wide">
+                <Zap className="w-4 h-4" />
+                <span>Earn 10 XP per lesson</span>
+              </div>
+            </button>
+
+            <button 
+              onClick={() => hasCompletedLearning && handleStartQuiz(selectedProduct)} 
+              disabled={!hasCompletedLearning} 
+              className={`rounded-3xl p-10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] text-left relative group border border-zinc-800 transition-all duration-300 ${
+                hasCompletedLearning 
+                  ? 'bg-zinc-900/80 backdrop-blur-xl hover:shadow-[0_12px_48px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.1)] hover:-translate-y-1 cursor-pointer' 
+                  : 'bg-zinc-950/60 backdrop-blur-sm cursor-not-allowed opacity-40'
+              }`}
+            >
+              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-[0_4px_12px_rgba(0,0,0,0.2)] ${
+                hasCompletedLearning 
+                  ? 'bg-gradient-to-b from-white to-gray-100 group-hover:scale-110 transition-transform' 
+                  : 'bg-zinc-800'
+              }`}>
+                <Brain className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="text-3xl font-light text-white mb-3 tracking-tight">Take Quiz</h3>
+              <p className="text-zinc-400 mb-4 font-light text-sm">{hasCompletedLearning ? 'Test your knowledge' : 'Complete learning first'}</p>
+              <div className={`flex items-center gap-2 font-light text-xs tracking-wide ${hasCompletedLearning ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                <Zap className="w-4 h-4" />
+                <span>Earn up to 125 XP</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] p-10 mb-12 shadow-2xl border border-zinc-800">
-          <div className="flex justify-between items-center">
+    <div className="min-h-screen bg-black p-8 relative overflow-hidden">
+      {/* Background Image with Animation */}
+      <div 
+        className={`fixed inset-0 bg-cover bg-center transition-all duration-1000 ${
+          backgroundLoaded ? 'opacity-100' : 'opacity-0'
+        } ${blurBackground ? 'blur-[8px] brightness-[0.3]' : 'blur-0 brightness-[0.5]'}`}
+        style={{
+          backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)'
+        }}
+        onLoad={() => setBackgroundLoaded(true)}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header with Metallic Sheen and Fade-in Animation */}
+        <div 
+          className={`bg-gradient-to-r from-zinc-900/90 via-zinc-800/90 to-zinc-900/90 backdrop-blur-xl rounded-3xl p-10 mb-12 shadow-[0_20px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.1)] border border-zinc-700/50 relative overflow-hidden transition-all duration-1000 ${
+            showHeader ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+          }`}
+        >
+          {/* Metallic Sheen Effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-50"></div>
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          
+          <div className="flex justify-between items-center relative z-10">
             <div>
-              <h1 className="text-6xl font-light tracking-tight text-white mb-4">
+              <h1 className="text-6xl font-light tracking-tight text-white mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                 Foresight Sports Europe Academy
               </h1>
-              <p className="text-zinc-400 text-lg font-light tracking-wide">Master our products, level up your expertise</p>
+              <p className="text-zinc-300 text-lg font-light tracking-wide">Master our products, level up your expertise</p>
             </div>
             <div className="text-right">
-              <div className="text-4xl font-light text-white mb-1">Level {userProgress.level}</div>
-              <div className="text-xs text-zinc-500 mb-3 tracking-wider uppercase">{userProgress.xp} XP</div>
-              <div className="w-48 bg-zinc-800 rounded-full h-1.5 overflow-hidden">
-                <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 h-1.5 rounded-full transition-all duration-500" style={{ width: `${(userProgress.xp % 100)}%` }} />
+              <div className="text-4xl font-light text-white mb-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">Level {userProgress.level}</div>
+              <div className="text-xs text-zinc-400 mb-3 tracking-wider uppercase">{userProgress.xp} XP</div>
+              <div className="w-48 bg-zinc-800/80 backdrop-blur-sm rounded-full h-2 overflow-hidden shadow-inner border border-zinc-700/50">
+                <div 
+                  className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 h-2 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(52,211,153,0.5)]" 
+                  style={{ width: `${(userProgress.xp % 100)}%` }} 
+                />
               </div>
             </div>
           </div>
 
           {userProgress.badges.length > 0 && (
-            <div className="mt-8 pt-8 border-t border-zinc-800">
+            <div className="mt-8 pt-8 border-t border-zinc-700/50">
               <p className="text-xs font-medium mb-4 flex items-center gap-2 text-zinc-400 uppercase tracking-wider">
-                <Trophy className="w-4 h-4 text-amber-400" />
+                <Trophy className="w-4 h-4 text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]" />
                 Earned Badges
               </p>
               <div className="flex gap-3 flex-wrap">
                 {userProgress.badges.map((badge, idx) => (
-                  <span key={idx} className="bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-2 rounded-full text-xs font-medium flex items-center gap-2 tracking-wide">
+                  <span 
+                    key={idx} 
+                    className="bg-amber-500/10 border-2 border-amber-500/30 text-amber-400 px-4 py-2 rounded-full text-xs font-medium flex items-center gap-2 tracking-wide shadow-[0_0_15px_rgba(251,191,36,0.2)]"
+                  >
                     <Star className="w-3 h-3" />
                     {products.find(p => p.id === badge)?.name}
                   </span>
@@ -467,22 +618,40 @@ const ForesightLearningApp = () => {
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-          {products.map(product => (
-            <div key={product.id} onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-8 cursor-pointer transform transition-all hover:scale-105 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] relative overflow-hidden group`}>
-              <h3 className="text-3xl font-light text-white mb-2 tracking-tight">{product.name}</h3>
-              <p className="text-white/60 text-sm font-light tracking-wide">{product.tagline}</p>
-              <ChevronRight className="w-5 h-5 text-white/40 absolute bottom-8 right-8 group-hover:text-white/80 transition-colors" />
+        {/* Product Cards with Fade-in Animation */}
+        <div 
+          className={`grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 transition-all duration-1000 delay-300 ${
+            showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          {products.map((product, index) => (
+            <div 
+              key={product.id} 
+              onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} 
+              className={`bg-gradient-to-br ${product.color} rounded-3xl p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_40px_rgba(255,255,255,0.15)] relative overflow-hidden group`}
+              style={{
+                transitionDelay: `${index * 50}ms`
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <h3 className="text-3xl font-light text-white mb-2 tracking-tight relative z-10">{product.name}</h3>
+              <p className="text-white/60 text-sm font-light tracking-wide relative z-10">{product.tagline}</p>
+              <ChevronRight className="w-5 h-5 text-white/40 absolute bottom-8 right-8 group-hover:text-white/80 group-hover:translate-x-1 transition-all" />
             </div>
           ))}
         </div>
 
-        <div className="bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl border border-zinc-800">
+        {/* Tips Section with Fade-in Animation */}
+        <div 
+          className={`bg-zinc-900/80 backdrop-blur-xl rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.4)] border border-zinc-800 transition-all duration-1000 delay-500 ${
+            showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h3 className="text-xl font-light mb-6 flex items-center gap-3 text-white tracking-wide">
-            <Lightbulb className="w-5 h-5 text-amber-400" />
+            <Lightbulb className="w-5 h-5 text-amber-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]" />
             Learning Tips
           </h3>
-          <ul className="space-y-3 text-zinc-400 font-light text-sm leading-relaxed">
+          <ul className="space-y-3 text-zinc-300 font-light text-sm leading-relaxed">
             <li>• Start with learning modules to understand each product</li>
             <li>• Complete learning to unlock quizzes</li>
             <li>• Score 80%+ on quizzes to earn product expert badges</li>
@@ -494,16 +663,4 @@ const ForesightLearningApp = () => {
   );
 };
 
-
 export default ForesightLearningApp;
-
-
-
-
-
-
-
-
-
-
-
