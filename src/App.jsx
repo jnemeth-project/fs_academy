@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Trophy, Zap, CheckCircle, XCircle, Award, ChevronRight, RotateCcw, BookOpen, Brain, Lightbulb, ArrowRight, Sparkles, Star } from 'lucide-react';
+import { Trophy, Zap, CheckCircle, XCircle, Award, ChevronRight, RotateCcw, BookOpen, Brain, Lightbulb, ArrowRight, Sparkles, Star, X } from 'lucide-react';
 
 const ForesightLearningApp = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -221,33 +221,42 @@ const ForesightLearningApp = () => {
     const progress = ((currentLesson + 1) / lessons.length) * 100;
 
     return (
-      <div className="min-h-screen bg-black p-4 md:p-8">
+      <div className="min-h-screen bg-black p-4 md:p-8 font-sans">
         <div className="max-w-4xl mx-auto">
+          <div className="flex justify-between items-center mb-8">
+            <button 
+              onClick={() => setCurrentView('productMenu')}
+              className="text-zinc-500 hover:text-white flex items-center gap-2 font-light text-xs tracking-widest uppercase transition-all"
+            >
+              <X className="w-4 h-4" /> Exit to Menu
+            </button>
+          </div>
+
           <div className="bg-zinc-900/50 backdrop-blur-xl rounded-[2rem] p-6 mb-6 shadow-2xl border border-zinc-800">
             <div className="flex justify-between items-center mb-4">
               <span className="text-xs font-light tracking-widest text-zinc-400 uppercase">Lesson {currentLesson + 1} of {lessons.length}</span>
               <span className="text-xs font-medium tracking-widest text-emerald-400 uppercase">+10 XP</span>
             </div>
-            <div className="w-full bg-zinc-800 rounded-full h-1.5">
-              <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 h-1.5 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(52,211,153,0.3)]" style={{ width: `${progress}%` }} />
+            <div className="w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
+              <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 h-full transition-all duration-500 shadow-[0_0_10px_rgba(52,211,153,0.3)]" style={{ width: `${progress}%` }} />
             </div>
           </div>
 
-          <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-12 mb-6 text-white shadow-2xl relative overflow-hidden`}>
+          <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-12 mb-6 text-white shadow-2xl border border-white/5`}>
             <h1 className="text-4xl font-light tracking-tight mb-3 drop-shadow-lg">{product.name}</h1>
             <h2 className="text-xl font-light opacity-80 tracking-wide">{lesson.title}</h2>
           </div>
 
           <div className="bg-white rounded-[2rem] p-12 shadow-xl border border-zinc-100">
-            <p className="text-zinc-600 text-base leading-relaxed mb-8 font-light">{lesson.text}</p>
+            <p className="text-zinc-600 text-lg leading-relaxed mb-8 font-light">{lesson.text}</p>
 
             <div className="flex gap-4 pt-8 border-t border-zinc-100">
               {currentLesson > 0 && (
-                <button onClick={() => setCurrentLesson(currentLesson - 1)} className="px-8 py-3 bg-zinc-50 text-zinc-900 rounded-xl font-medium border border-zinc-200 hover:bg-zinc-100 hover:shadow-md transition-all">
+                <button onClick={() => setCurrentLesson(currentLesson - 1)} className="px-8 py-3 bg-zinc-50 text-zinc-900 rounded-xl font-medium border border-zinc-200 hover:bg-zinc-100 transition-all">
                   Previous
                 </button>
               )}
-              <button onClick={handleNextLesson} className="flex-1 bg-gradient-to-b from-zinc-800 to-black text-white py-3 rounded-xl font-medium shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 tracking-wide">
+              <button onClick={handleNextLesson} className="flex-1 bg-gradient-to-b from-zinc-800 to-black text-white py-4 rounded-xl font-medium shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 tracking-wide">
                 {currentLesson < lessons.length - 1 ? (
                   <>Next Lesson <ArrowRight className="w-4 h-4" /></>
                 ) : (
@@ -267,16 +276,16 @@ const ForesightLearningApp = () => {
     const isCorrect = selectedAnswer === question.correct;
 
     return (
-      <div className="min-h-screen bg-black p-8 flex items-center justify-center">
+      <div className="min-h-screen bg-black p-8 flex items-center justify-center font-sans">
         <div className="max-w-2xl w-full bg-zinc-900 rounded-[2rem] p-12 shadow-2xl border border-zinc-800">
           <div className="flex justify-between items-center mb-8">
             <span className="text-xs font-light tracking-widest text-zinc-500 uppercase">Question {currentQuizQuestion + 1} of {quiz.length}</span>
             <span className="text-xs font-medium tracking-widest text-emerald-500 uppercase">Score: {quizScore}/{quiz.length}</span>
           </div>
 
-          <h2 className="text-2xl font-light mb-8 text-white leading-relaxed tracking-tight">{question.question}</h2>
+          <h2 className="text-2xl font-light mb-10 text-white leading-relaxed tracking-tight">{question.question}</h2>
 
-          <div className="space-y-3 mb-8">
+          <div className="space-y-3 mb-10">
             {question.answers.map((answer, idx) => (
               <button
                 key={idx}
@@ -285,19 +294,19 @@ const ForesightLearningApp = () => {
                 className={`w-full p-5 rounded-xl text-left font-light transition-all border ${
                   showFeedback
                     ? idx === question.correct
-                      ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400'
+                      ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.1)]'
                       : idx === selectedAnswer
                       ? 'bg-rose-500/10 border-rose-500 text-rose-400'
                       : 'bg-zinc-800/50 text-zinc-600 border-zinc-900'
                     : selectedAnswer === idx
-                    ? 'bg-white text-black border-white shadow-xl'
-                    : 'bg-zinc-800 hover:bg-zinc-700/50 text-white border-zinc-800 hover:shadow-lg hover:-translate-y-0.5'
+                    ? 'bg-white text-black border-white shadow-xl translate-x-1'
+                    : 'bg-zinc-800/50 hover:bg-zinc-800 text-white border-zinc-800 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0'
                 }`}
               >
                 <div className="flex items-center gap-3">
                   {showFeedback && idx === question.correct && <CheckCircle className="w-5 h-5" />}
                   {showFeedback && idx === selectedAnswer && idx !== question.correct && <XCircle className="w-5 h-5" />}
-                  <span>{answer}</span>
+                  <span className="text-lg">{answer}</span>
                 </div>
               </button>
             ))}
@@ -307,13 +316,13 @@ const ForesightLearningApp = () => {
             <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
               <div className={`p-6 rounded-xl mb-8 border-l-2 ${isCorrect ? 'bg-emerald-500/5 border-emerald-500' : 'bg-cyan-500/5 border-cyan-500'}`}>
                 <p className={`font-medium mb-1 text-sm ${isCorrect ? 'text-emerald-400' : 'text-cyan-400'}`}>
-                  {isCorrect ? 'Correct!' : 'Knowledge Check'}
+                  {isCorrect ? 'Correct!' : 'Quick Review'}
                 </p>
                 <p className="text-zinc-400 text-sm font-light leading-relaxed">{question.explanation}</p>
               </div>
 
-              <button onClick={handleNextQuestion} className="w-full bg-white text-black py-4 rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm tracking-wide">
-                {currentQuizQuestion < quiz.length - 1 ? 'Next Question' : 'Finish Quiz'}
+              <button onClick={handleNextQuestion} className="w-full bg-white text-black py-4 rounded-xl font-medium shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm tracking-wide">
+                {currentQuizQuestion < quiz.length - 1 ? 'Next Question' : 'View Results'}
               </button>
             </div>
           )}
@@ -328,7 +337,7 @@ const ForesightLearningApp = () => {
     const product = products.find(p => p.id === selectedProduct);
 
     return (
-      <div className="min-h-screen bg-black p-8 flex items-center justify-center">
+      <div className="min-h-screen bg-black p-8 flex items-center justify-center font-sans">
         <div className="max-w-2xl w-full bg-zinc-900 rounded-[2rem] p-12 shadow-2xl text-center border border-zinc-800">
           <div className="mb-8 inline-block">
             {percentage >= 80 ? (
@@ -339,23 +348,23 @@ const ForesightLearningApp = () => {
           </div>
 
           <h1 className="text-4xl font-light mb-2 text-white tracking-tight">
-            {percentage >= 80 ? 'Module Mastered' : 'Module Complete'}
+            {percentage >= 80 ? 'Certification Earned' : 'Quiz Complete'}
           </h1>
-          <p className="text-lg text-zinc-500 mb-10 font-light tracking-wide">You scored {quizScore} / {quiz.length} ({percentage}%)</p>
+          <p className="text-lg text-zinc-500 mb-12 font-light tracking-wide">Achievement: {percentage}% Accuracy</p>
 
           {percentage >= 80 && (
-            <div className="bg-zinc-800/50 border border-amber-500/20 rounded-2xl p-8 mb-10 shadow-inner">
+            <div className="bg-zinc-800/30 border border-amber-500/20 rounded-2xl p-8 mb-12 shadow-inner">
               <Star className="w-8 h-8 text-amber-400 mx-auto mb-3" />
-              <p className="font-medium text-amber-400 tracking-wide uppercase text-xs">Expert Badge Unlocked</p>
-              <p className="text-white text-lg font-light mt-1">{product.name} Specialist</p>
+              <p className="font-medium text-amber-400 tracking-widest uppercase text-[10px]">Official Badge</p>
+              <p className="text-white text-xl font-light mt-1">{product.name} Specialist</p>
             </div>
           )}
 
           <div className="flex gap-4">
             <button onClick={() => handleStartQuiz(selectedProduct)} className="flex-1 bg-zinc-800 text-white py-4 rounded-xl font-medium hover:bg-zinc-700 transition-all text-sm">
-              Retake Quiz
+              Retake Certification
             </button>
-            <button onClick={() => setCurrentView('home')} className="flex-1 bg-white text-black py-4 rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm">
+            <button onClick={() => setCurrentView('home')} className="flex-1 bg-white text-black py-4 rounded-xl font-medium shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all text-sm">
               Return Home
             </button>
           </div>
@@ -369,36 +378,36 @@ const ForesightLearningApp = () => {
     const hasCompletedLearning = userProgress.completedLearning.includes(selectedProduct);
 
     return (
-      <div className="min-h-screen bg-black p-8">
-        <button onClick={() => setCurrentView('home')} className="mb-12 text-zinc-500 hover:text-white flex items-center gap-2 font-light text-sm tracking-widest uppercase transition-all">
-          <ChevronRight className="w-4 h-4 rotate-180" /> Back
+      <div className="min-h-screen bg-black p-8 font-sans">
+        <button onClick={() => setCurrentView('home')} className="mb-12 text-zinc-500 hover:text-white flex items-center gap-2 font-light text-xs tracking-widest uppercase transition-all">
+          <ChevronRight className="w-4 h-4 rotate-180" /> Back to Dashboard
         </button>
 
         <div className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-16 mb-12 text-white text-center shadow-2xl border border-white/5`}>
-          <h1 className="text-5xl font-light mb-4 tracking-tight">{product.name}</h1>
+          <h1 className="text-5xl font-light mb-4 tracking-tight drop-shadow-lg">{product.name}</h1>
           <p className="text-xl font-light opacity-60 tracking-wide">{product.tagline}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <button onClick={() => handleStartLearning(selectedProduct)} className="bg-zinc-900 rounded-[2rem] p-10 shadow-2xl hover:shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:-translate-y-1 transition-all text-left relative group border border-zinc-800">
+          <button onClick={() => handleStartLearning(selectedProduct)} className="bg-zinc-900 rounded-[2rem] p-10 shadow-2xl hover:shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:-translate-y-1 transition-all text-left relative group border border-zinc-800 active:scale-[0.98]">
             {hasCompletedLearning && <CheckCircle className="w-6 h-6 text-emerald-400 absolute top-10 right-10" />}
             <div className="bg-white/5 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-2xl font-light text-white mb-2">Training</h3>
-            <p className="text-zinc-500 mb-6 font-light text-sm">Review core concepts and features.</p>
+            <p className="text-zinc-500 mb-8 font-light text-sm">Review deep-dive technical content.</p>
             <div className="flex items-center gap-2 text-zinc-600 font-medium text-[10px] tracking-widest uppercase">
               <Zap className="w-3 h-3" />
               <span>Earn 50 XP</span>
             </div>
           </button>
 
-          <button onClick={() => hasCompletedLearning && handleStartQuiz(selectedProduct)} disabled={!hasCompletedLearning} className={`rounded-[2rem] p-10 shadow-2xl text-left relative group border ${hasCompletedLearning ? 'bg-zinc-900 hover:shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:-translate-y-1 border-zinc-800 cursor-pointer' : 'bg-zinc-950 border-zinc-900 cursor-not-allowed opacity-40'}`}>
+          <button onClick={() => hasCompletedLearning && handleStartQuiz(selectedProduct)} disabled={!hasCompletedLearning} className={`rounded-[2rem] p-10 shadow-2xl text-left relative group border ${hasCompletedLearning ? 'bg-zinc-900 hover:shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:-translate-y-1 border-zinc-800 active:scale-[0.98]' : 'bg-zinc-950 border-zinc-900 cursor-not-allowed opacity-30'}`}>
             <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${hasCompletedLearning ? 'bg-white/5 group-hover:bg-white/10' : 'bg-zinc-900'}`}>
               <Brain className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-2xl font-light text-white mb-2">Certification</h3>
-            <p className="text-zinc-500 mb-6 font-light text-sm">Pass the quiz to earn your specialist badge.</p>
+            <p className="text-zinc-500 mb-8 font-light text-sm">Pass the quiz to unlock your specialist badge.</p>
             <div className="flex items-center gap-2 text-zinc-600 font-medium text-[10px] tracking-widest uppercase">
               <Zap className="w-3 h-3" />
               <span>Earn 100 XP</span>
@@ -414,18 +423,18 @@ const ForesightLearningApp = () => {
       <div className="max-w-7xl mx-auto">
         <div className="bg-zinc-900/40 backdrop-blur-3xl rounded-[2.5rem] p-10 mb-12 shadow-2xl border border-zinc-800/50">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div className="py-2">
+            <div>
               <h1 className="text-5xl font-light tracking-tighter mb-2 leading-none">
                 <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-100 to-zinc-400 drop-shadow-sm">
                   Foresight Sports Europe Academy
                 </span>
               </h1>
-              <p className="text-zinc-500 text-lg font-light tracking-wide">Premium Product Mastery & Certification</p>
+              <p className="text-zinc-500 text-lg font-light tracking-wide uppercase tracking-[0.2em] text-xs">Premium Product Mastery & Certification</p>
             </div>
             <div className="text-right">
-              <div className="text-3xl font-light text-white mb-1 tracking-tight">Lvl {userProgress.level}</div>
+              <div className="text-3xl font-light text-white mb-1 tracking-tight">Level {userProgress.level}</div>
               <div className="text-[10px] text-emerald-400/80 mb-3 font-medium tracking-[0.3em] uppercase">{userProgress.xp} XP Earned</div>
-              <div className="w-48 bg-zinc-800 rounded-full h-1 shadow-inner overflow-hidden border border-zinc-800">
+              <div className="w-48 bg-zinc-800 rounded-full h-1 overflow-hidden border border-zinc-800 shadow-inner">
                 <div className="bg-gradient-to-r from-emerald-500 to-cyan-400 h-full rounded-full transition-all duration-1000 shadow-[0_0_8px_rgba(16,185,129,0.3)]" style={{ width: `${(userProgress.xp % 100)}%` }} />
               </div>
             </div>
@@ -447,12 +456,16 @@ const ForesightLearningApp = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {products.map(product => (
-            <div key={product.id} onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-8 cursor-pointer transition-all hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.6)] hover:shadow-white/5 border border-white/5 active:scale-[0.98] group relative overflow-hidden`}>
-              <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div 
+              key={product.id} 
+              onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} 
+              className={`bg-gradient-to-br ${product.color} rounded-[2rem] p-8 cursor-pointer transition-all hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.6)] border border-white/5 active:scale-[0.98] group relative overflow-hidden`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <h3 className="text-3xl font-light text-white mb-1 tracking-tight drop-shadow-md">{product.name}</h3>
               <p className="text-white/60 text-xs font-light tracking-wide mb-8">{product.tagline}</p>
               <div className="flex items-center gap-1 text-white/40 group-hover:text-white transition-colors">
-                 <span className="text-[10px] font-medium uppercase tracking-widest">Open Module</span>
+                 <span className="text-[10px] font-medium uppercase tracking-widest">Begin Module</span>
                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
@@ -464,11 +477,23 @@ const ForesightLearningApp = () => {
             <Lightbulb className="w-5 h-5 text-amber-400" />
             Academy Guidelines
           </h3>
-          <ul className="grid md:grid-cols-2 gap-6 text-zinc-500 font-light text-sm leading-relaxed tracking-wide">
-            <li className="flex gap-4">01. Complete the interactive Training Module for each product first.</li>
-            <li className="flex gap-4">02. The Certification Quiz requires a 100% score to earn a specialist badge.</li>
-            <li className="flex gap-4">03. XP is awarded for all learning activities and successful quizzes.</li>
-            <li className="flex gap-4">04. Maintain your certification by reviewing new features as they release.</li>
+          <ul className="grid md:grid-cols-2 gap-8 text-zinc-500 font-light text-sm leading-relaxed tracking-wide">
+            <li className="flex gap-4">
+              <span className="text-white/20 font-medium">01</span>
+              Complete the Training Module to unlock the Specialist Certification Quiz.
+            </li>
+            <li className="flex gap-4">
+              <span className="text-white/20 font-medium">02</span>
+              A passing score of 80% or higher is required to earn your official badge.
+            </li>
+            <li className="flex gap-4">
+              <span className="text-white/20 font-medium">03</span>
+              Badges represent verified expertise in Foresight Sports technology and software.
+            </li>
+            <li className="flex gap-4">
+              <span className="text-white/20 font-medium">04</span>
+              Modules can be reviewed at any time to refresh technical knowledge.
+            </li>
           </ul>
         </div>
       </div>
