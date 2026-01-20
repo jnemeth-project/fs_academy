@@ -68,7 +68,7 @@ const ForesightLearningApp = () => {
       { title: 'Course Downloads', text: 'Courses do not play instantly after activation. Users must download courses from the Library before they become available to play.' },
       { title: 'Swing Camera Version Requirement', text: 'Swing Camera is ONLY supported in FSX Play version 1.10.0.10 or newer. Earlier versions will not show Swing Camera options.' },
       { title: 'Swing Camera Enable Path', text: 'To enable Swing Camera: Go to Settings in them Main Menu → Swing Camera → Click ENABLE → Assign camera from dropdown. You must do this from the main menu, not from the open session settings.' },
-      { title: 'Why is the purchased license not showing in your FSX Live Account?', text: 'Licenses do NOT appear automatically after purchase. Make sure you activated your FSX Play license within the software using your FSX Live username, Password, and the FSX Play activation code. After a successful activation, the license should appear in your FSX Live account online. (Hint: You must use the same FSX Live Username and Password for the activation that you used for the FSX Live account login.' },
+      { title: 'Why is the purchased license not showing in your FSX Live Account?', text: 'Licenses do NOT appear automatically after purchase. Make sure you activated your FSX Play license within the software using your FSX Live username, Password, and the FSX Play activation code. After a successful activation, the license should appear in your FSX Live account online. (Hint: You must use the same FSX Live Username and Password for the activation that you used for the FSX Live account login.' }
     ],
     fairgrounds: [
       { title: 'What is Fairgrounds?', text: 'Foresight Fairgrounds is entertainment mini-games for your simulator. BEST PART: Comes FREE with FSX 2020! Think of it as party mode - perfect for friends and family.' },
@@ -178,7 +178,7 @@ const ForesightLearningApp = () => {
       { question: 'Falcon hitting zone size?', answers: ['52" x 30"', '59" x 28"', '48" x 26"', '60" x 32"'], correct: 1, explanation: 'Falcon has 59" x 28" hitting zone!' },
       { question: 'What should you reapply if Falcon picks up ball data but not club data?', answers: ['Calibration wand', 'Reflective markers', 'Ethernet cable', 'Firmware patch'], correct: 1, explanation: 'Reapply reflective markers first! This is the #1 fix for missing club data.' },
       { question: 'Can updating Falcon firmware help resolve missing club data issues?', answers: ['No, firmware only affects connection', 'Yes, firmware updates can fix data issues', 'Only for ball data', 'Firmware never affects tracking'], correct: 1, explanation: 'Yes! Updating firmware is step 2 after reapplying markers for missing club data.' },
-      { question: 'Is recalibration only required when Falcon is first installed?', answers: ['Yes, one-time only', 'No, needed when conditions change', 'Only after firmware updates', 'Never required'], correct: 1, explanation: 'Recalibration needed when: device loses lock, hitting area changes, or device is serviced/moved!' },
+      { question: 'Is recalibration only required when Falcon is first installed?', answers: ['Yes, one-time only', 'No, needed when conditions change', 'Only after firmware updates', 'Never required'], correct: 1, explanation: 'Recalibration needed when: device loses lock, hitting area changes, or device is serviced/moved!' }
     ],
     gchawk: [
       { question: 'GCHawk WiFi password?', answers: ['GCHAWK2024', 'FSSPORTS', 'foresight123', 'No password'], correct: 1, explanation: 'Default WiFi password is FSSPORTS!' },
@@ -291,17 +291,15 @@ const ForesightLearningApp = () => {
 
     return (
       <div className="min-h-screen bg-black p-4 md:p-8 relative overflow-hidden">
-        {/* Background Image */}
         <div 
           className="fixed inset-0 bg-cover bg-center transition-all duration-1000"
           style={{
-            backgroundImage: 'url(/golf-glove-bg.jpg)',
+            backgroundImage: 'url(/pexels-kindelmedia-6573882.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
         
         <div className="relative z-10 max-w-4xl mx-auto">
-          {/* Exit Button */}
           <div className="mb-6">
             <PremiumButton onClick={exitToMainMenu} variant="ghost" icon={Home}>
               Exit to Main Menu
@@ -358,17 +356,15 @@ const ForesightLearningApp = () => {
 
     return (
       <div className="min-h-screen bg-black p-8 flex items-center justify-center relative overflow-hidden">
-        {/* Background Image */}
         <div 
           className="fixed inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/golf-glove-bg.jpg)',
+            backgroundImage: 'url(/pexels-kindelmedia-6573882.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
 
         <div className="relative z-10 w-full max-w-2xl">
-          {/* Exit Button */}
           <div className="mb-6">
             <PremiumButton onClick={exitToMainMenu} variant="ghost" icon={Home}>
               Exit to Main Menu
@@ -438,11 +434,10 @@ const ForesightLearningApp = () => {
 
     return (
       <div className="min-h-screen bg-black p-8 flex items-center justify-center relative overflow-hidden">
-        {/* Background Image */}
         <div 
           className="fixed inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/golf-glove-bg.jpg)',
+            backgroundImage: 'url(/pexels-kindelmedia-6573882.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
@@ -488,11 +483,10 @@ const ForesightLearningApp = () => {
 
     return (
       <div className="min-h-screen bg-black p-8 relative overflow-hidden">
-        {/* Background Image */}
         <div 
           className="fixed inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/golf-glove-bg.jpg)',
+            backgroundImage: 'url(/pexels-kindelmedia-6573882.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
@@ -556,25 +550,22 @@ const ForesightLearningApp = () => {
 
   return (
     <div className="min-h-screen bg-black p-8 relative overflow-hidden">
-      {/* Background Image with Animation */}
       <div 
         className={`fixed inset-0 bg-cover bg-center transition-all duration-1000 ${
           backgroundLoaded ? 'opacity-100' : 'opacity-0'
         } ${blurBackground ? 'blur-[8px] brightness-[0.3]' : 'blur-0 brightness-[0.5]'}`}
         style={{
-          backgroundImage: 'url(/golf-glove-bg.jpg)'
+          backgroundImage: 'url(/pexels-kindelmedia-6573882.jpg)'
         }}
         onLoad={() => setBackgroundLoaded(true)}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header with Metallic Sheen and Fade-in Animation */}
         <div 
           className={`bg-gradient-to-r from-zinc-900/90 via-zinc-800/90 to-zinc-900/90 backdrop-blur-xl rounded-3xl p-10 mb-12 shadow-[0_20px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.1)] border border-zinc-700/50 relative overflow-hidden transition-all duration-1000 ${
             showHeader ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
           }`}
         >
-          {/* Metallic Sheen Effect */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-50"></div>
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           
@@ -618,30 +609,29 @@ const ForesightLearningApp = () => {
           )}
         </div>
 
-        {/* Product Cards with Fade-in Animation */}
         <div 
           className={`grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 transition-all duration-1000 delay-300 ${
             showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
           {products.map((product, index) => (
-            <div 
+            <button 
               key={product.id} 
               onClick={() => { setSelectedProduct(product.id); setCurrentView('productMenu'); }} 
-              className={`bg-gradient-to-br ${product.color} rounded-3xl p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_40px_rgba(255,255,255,0.15)] relative overflow-hidden group`}
+              className={`bg-gradient-to-br ${product.color} rounded-3xl p-8 cursor-pointer transform transition-all duration-300 shadow-[0_8px_16px_rgba(0,0,0,0.4),0_4px_8px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.5),0_0_40px_rgba(255,255,255,0.2)] hover:-translate-y-1 active:translate-y-0 active:shadow-[0_4px_12px_rgba(0,0,0,0.4)] relative overflow-hidden group text-left`}
               style={{
                 transitionDelay: `${index * 50}ms`
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10 group-hover:translate-x-full transition-all duration-700 -translate-x-full"></span>
               <h3 className="text-3xl font-light text-white mb-2 tracking-tight relative z-10">{product.name}</h3>
               <p className="text-white/60 text-sm font-light tracking-wide relative z-10">{product.tagline}</p>
               <ChevronRight className="w-5 h-5 text-white/40 absolute bottom-8 right-8 group-hover:text-white/80 group-hover:translate-x-1 transition-all" />
-            </div>
+            </button>
           ))}
         </div>
 
-        {/* Tips Section with Fade-in Animation */}
         <div 
           className={`bg-zinc-900/80 backdrop-blur-xl rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.4)] border border-zinc-800 transition-all duration-1000 delay-500 ${
             showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
