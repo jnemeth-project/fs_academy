@@ -295,7 +295,7 @@ const ForesightLearningApp = () => {
         <div 
           className="fixed inset-0 bg-cover bg-center transition-all duration-1000"
           style={{
-            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            backgroundImage: 'url(/golf-glove-bg.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
@@ -362,7 +362,7 @@ const ForesightLearningApp = () => {
         <div 
           className="fixed inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            backgroundImage: 'url(/golf-glove-bg.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
@@ -442,7 +442,7 @@ const ForesightLearningApp = () => {
         <div 
           className="fixed inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            backgroundImage: 'url(/golf-glove-bg.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
@@ -492,7 +492,7 @@ const ForesightLearningApp = () => {
         <div 
           className="fixed inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)',
+            backgroundImage: 'url(/golf-glove-bg.jpg)',
             filter: 'blur(8px) brightness(0.3)'
           }}
         />
@@ -562,7 +562,7 @@ const ForesightLearningApp = () => {
           backgroundLoaded ? 'opacity-100' : 'opacity-0'
         } ${blurBackground ? 'blur-[8px] brightness-[0.3]' : 'blur-0 brightness-[0.5]'}`}
         style={{
-          backgroundImage: 'url(/mnt/user-data/uploads/pexels-kindelmedia-6573882.jpg)'
+          backgroundImage: 'url(/golf-glove-bg.jpg)'
         }}
         onLoad={() => setBackgroundLoaded(true)}
       />
