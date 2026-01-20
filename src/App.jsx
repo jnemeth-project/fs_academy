@@ -31,7 +31,7 @@ const questions = [
 ];
 
 /* ----------------------------------------
-   Button component (UI only)
+   Button component (UPGRADED – 3D / Physical)
 ---------------------------------------- */
 function QuizButton({ children, onClick, disabled }) {
   return (
@@ -39,19 +39,24 @@ function QuizButton({ children, onClick, disabled }) {
       onClick={onClick}
       disabled={disabled}
       className="
-        w-full px-4 py-3 rounded-xl
-        bg-gray-800 text-white
-        shadow-md
-        transition-all duration-200
-        hover:shadow-lg hover:scale-[1.01]
-        hover:ring-2 hover:ring-white/20
+        w-full px-5 py-4 rounded-2xl
+        bg-gradient-to-b from-gray-700 to-gray-900
+        text-white font-semibold
+        shadow-[0_6px_0_rgba(0,0,0,0.7),0_12px_24px_rgba(0,0,0,0.6)]
+        transition-all duration-150
+        hover:from-gray-600 hover:to-gray-800
+        hover:shadow-[0_8px_0_rgba(0,0,0,0.75),0_16px_30px_rgba(0,0,0,0.65)]
+        active:translate-y-2
+        active:shadow-[0_3px_0_rgba(0,0,0,0.7),0_6px_14px_rgba(0,0,0,0.6)]
         disabled:opacity-50 disabled:cursor-not-allowed
+        focus:outline-none focus:ring-2 focus:ring-white/25
       "
     >
       {children}
     </button>
   );
 }
+
 
 /* ----------------------------------------
    Main App
@@ -141,3 +146,4 @@ export default function ForesightLearningApp() {
     </div>
   );
 }
+
