@@ -20,7 +20,6 @@ const ForesightLearningApp = () => {
   const [showFeedback, setShowFeedback] = useState(false);
   
   // Animation states
-  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [blurBackground, setBlurBackground] = useState(false);
@@ -552,12 +551,11 @@ const ForesightLearningApp = () => {
     <div className="min-h-screen bg-black p-8 relative overflow-hidden">
       <div 
         className={`fixed inset-0 bg-cover bg-center transition-all duration-1000 ${
-          backgroundLoaded ? 'opacity-100' : 'opacity-0'
-        } ${blurBackground ? 'blur-[8px] brightness-[0.3]' : 'blur-0 brightness-[0.5]'}`}
+          blurBackground ? 'blur-[8px] brightness-[0.3]' : 'blur-0 brightness-[0.5]'
+        }`}
         style={{
           backgroundImage: 'url(/pexels-kindelmedia-6573882.jpg)'
         }}
-        onLoad={() => setBackgroundLoaded(true)}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
