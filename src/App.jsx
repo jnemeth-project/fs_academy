@@ -262,12 +262,36 @@ const ForesightLearningApp = () => {
 
   // Premium Button Component
   const PremiumButton = ({ onClick, children, variant = 'primary', icon: Icon, className = '' }) => {
-    const baseStyles = "relative px-8 py-4 rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-3 text-sm tracking-wide overflow-hidden group";
+    const baseStyles = "relative px-8 py-5 rounded-2xl font-medium transition-all duration-200 flex items-center justify-center gap-3 text-sm tracking-wide overflow-visible group";
     
     const variantStyles = {
-      primary: "bg-gradient-to-b from-white to-gray-100 text-black shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.25),0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-[0_2px_8px_rgba(0,0,0,0.2)]",
-      secondary: "bg-gradient-to-b from-zinc-700 to-zinc-800 text-white shadow-[0_4px_12px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.4),0_0_30px_rgba(100,100,100,0.2)] hover:-translate-y-0.5 active:translate-y-0",
-      ghost: "bg-transparent border-2 border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+      primary: `
+        bg-gradient-to-b from-gray-200 via-white to-gray-300 text-black
+        shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_-1px_0_rgba(0,0,0,0.2)_inset,0_8px_0_rgba(180,180,180,1),0_9px_2px_rgba(0,0,0,0.3),0_12px_20px_rgba(0,0,0,0.4)]
+        border-t-2 border-white/60 border-b border-gray-400
+        hover:shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_-1px_0_rgba(0,0,0,0.2)_inset,0_6px_0_rgba(180,180,180,1),0_7px_2px_rgba(0,0,0,0.3),0_10px_20px_rgba(0,0,0,0.4)]
+        hover:translate-y-[2px]
+        active:shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_-1px_0_rgba(0,0,0,0.2)_inset,0_2px_0_rgba(180,180,180,1),0_3px_2px_rgba(0,0,0,0.3),0_4px_10px_rgba(0,0,0,0.4)]
+        active:translate-y-[6px]
+      `,
+      secondary: `
+        bg-gradient-to-b from-zinc-600 via-zinc-700 to-zinc-800 text-white
+        shadow-[0_1px_0_rgba(255,255,255,0.15)_inset,0_-1px_0_rgba(0,0,0,0.4)_inset,0_8px_0_rgba(30,30,35,1),0_9px_2px_rgba(0,0,0,0.5),0_12px_20px_rgba(0,0,0,0.6)]
+        border-t-2 border-zinc-500/40 border-b border-black/60
+        hover:shadow-[0_1px_0_rgba(255,255,255,0.15)_inset,0_-1px_0_rgba(0,0,0,0.4)_inset,0_6px_0_rgba(30,30,35,1),0_7px_2px_rgba(0,0,0,0.5),0_10px_20px_rgba(0,0,0,0.6)]
+        hover:translate-y-[2px]
+        active:shadow-[0_1px_0_rgba(255,255,255,0.15)_inset,0_-1px_0_rgba(0,0,0,0.4)_inset,0_2px_0_rgba(30,30,35,1),0_3px_2px_rgba(0,0,0,0.5),0_4px_10px_rgba(0,0,0,0.6)]
+        active:translate-y-[6px]
+      `,
+      ghost: `
+        bg-gradient-to-b from-zinc-800 via-zinc-850 to-zinc-900 text-zinc-400
+        shadow-[0_1px_0_rgba(255,255,255,0.08)_inset,0_-1px_0_rgba(0,0,0,0.5)_inset,0_6px_0_rgba(15,15,20,1),0_7px_2px_rgba(0,0,0,0.6),0_10px_18px_rgba(0,0,0,0.5)]
+        border-2 border-zinc-700/50 border-t-zinc-600/30
+        hover:text-white hover:border-zinc-600/60
+        hover:shadow-[0_1px_0_rgba(255,255,255,0.1)_inset,0_-1px_0_rgba(0,0,0,0.5)_inset,0_4px_0_rgba(15,15,20,1),0_5px_2px_rgba(0,0,0,0.6),0_8px_18px_rgba(0,0,0,0.5)]
+        hover:translate-y-[2px]
+        active:translate-y-[5px]
+      `
     };
 
     return (
@@ -275,9 +299,10 @@ const ForesightLearningApp = () => {
         onClick={onClick}
         className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       >
-        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 group-hover:translate-x-full transition-all duration-700 -translate-x-full"></span>
-        {Icon && <Icon className="w-5 h-5 relative z-10" />}
-        <span className="relative z-10">{children}</span>
+        <span className="relative z-10 flex items-center gap-3">
+          {Icon && <Icon className="w-5 h-5" />}
+          {children}
+        </span>
       </button>
     );
   };
