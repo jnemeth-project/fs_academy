@@ -118,10 +118,10 @@ const ForesightLearningApp = () => {
       { title: 'Support Contact Information', text: 'If troubleshooting steps do not resolve your issue, contact support@foresightsports.eu with detailed information: What troubleshooting steps have you tried? Has the feature worked before? Can multiple people replicate the issue? What software versions are you testing? Include Falcon firmware version and serial number. Providing comprehensive details helps support team diagnose and resolve issues faster. Video guides and documentation available at support.foresightsports.com.' }
     ],
     gchawk: [
-      { title: 'What is GCHawk?', text: 'GCHawk is flagship ceiling-mounted launch monitor - gold standard for high-end simulators and commercial facilities. Same Quadrascopic system as GCQuad - four cameras for tour-level accuracy. Hands-free overhead design never gets in way!' },
-      { title: 'Premium Hitting Zone', text: 'Features 52" x 30" hitting area - one of largest in industry! Supports all clubs including putter. Both left and right-handed players without repositioning. Commercial-grade durability for high-volume use!' },
-      { title: 'Multi-Sport Magic', text: 'GCHawk tracks GOLF and SOCCER! Uses Skill Drill software for soccer. Golf mode captures standard data. Soccer mode tracks ball speed, trajectory, accuracy. Incredibly valuable for multi-sport facilities!' },
-      { title: 'Data Modules', text: 'Ball Data included (speed, launch, spin). Club Data paid add-on (club speed, path, face angle, impact). Putting paid add-on (skid, roll, post-impact). Important: Modules often have trial periods - after expiration need purchase!' },
+      { title: 'What is GCHawk?', text: 'GCHawk is a flagship ceiling-mounted launch monitor - gold standard for high-end simulators and commercial facilities. Same Quadrascopic system as GCQuad - four cameras for tour-level accuracy. Hands-free overhead design never gets in way!' },
+      { title: 'Premium Hitting Zone', text: 'Features 52" x 30" hitting area - one of the largest in industry! Supports all clubs, including putter. Both left and right-handed players without repositioning. Commercial-grade durability for high-volume use!' },
+      { title: 'Multi-Sport Magic', text: 'GCHawk tracks GOLF and SOCCER! Uses Skill Drill software for soccer. Golf mode captures standard data. Soccer mode tracks ball speed, trajectory,and  accuracy. Incredibly valuable for multi-sport facilities!' },
+      { title: 'Data Modules', text: 'Ball Data included (speed, launch, spin). Club Data paid add-on (club speed, path, face angle, impact). Putting paid add-on (skid, roll, post-impact). Important: Modules often have trial periods - after expiration, you need to purchase it, or validate your device to activate your full module!' },
       { title: 'LED & Connectivity', text: 'Same LED as other Foresight: Blue = ball-only, Green = ball & club, Yellow = booting, Red = error. Connectivity: USB-C, Ethernet, WiFi. CRITICAL: Default WiFi password is FSSPORTS - customers need this for mobile apps!' },
       { title: 'Software Integration', text: 'Works with all Foresight platforms: FSX Play, FSX 2020, FSX Pro, Fairgrounds. Mobile: Foresight App (iOS/Android) and FSX Pro Mobile for iPad. For mobile WiFi connection, remember password: FSSPORTS!' }
     ]
@@ -129,17 +129,17 @@ const ForesightLearningApp = () => {
 
   const quizData = {
     fsx2020: [
-      { question: 'Customer wants offline FSX 2020 at cabin. What do you tell them?', answers: ['Internet always required', 'Can activate 720 offline hours', 'Only FSX Play works offline', 'Need special license'], correct: 1, explanation: 'FSX 2020 has offline mode! Activate 720 hours through FSX Live.' },
-      { question: 'Customer bought used system. First step to activate?', answers: ['Download immediately', 'Previous owner deactivates license', 'Buy new license', 'Contact support'], correct: 3, explanation: 'Contact us first so we can verify that all licenses are free, properly deactivated, and ready to be activated on the new system.' },
-      { question: 'How many FREE courses with FSX 2020?', answers: ['5 courses', '12 courses', '25 courses', 'No free courses'], correct: 1, explanation: 'FSX 2020 includes 12 free courses. FSX Play has 25!' },
-      { question: 'Which graphics cards NOT supported?', answers: ['Nvidia GeForce RTX', 'Nvidia Quadro and AMD', 'All Nvidia', 'Only integrated'], correct: 1, explanation: 'Nvidia Quadro and AMD NOT supported. Always check graphics!' }
+      { question: 'Customer wants offline FSX 2020 at their cabin. What do you tell them?', answers: ['Internet is always required', 'They can activate 720 offline hours', 'Only FSX Play works offline', 'Need special license'], correct: 1, explanation: 'FSX 2020 has offline mode! Activate 720 hours through FSX Live.' },
+      { question: 'Customer bought a used system. What is the first step to activate?', answers: ['Download immediately', 'Previous owner deactivates license', 'Buy new license', 'Contact support'], correct: 3, explanation: 'Contact us first so we can verify that all licenses are free, properly deactivated, and ready to be activated on the new system.' },
+      { question: 'How many FREE courses come with FSX 2020?', answers: ['5 courses', '12 courses', '25 courses', 'No free courses'], correct: 1, explanation: 'FSX 2020 includes 12 free courses. FSX Play has 25!' },
+      { question: 'Which graphics cards are NOT supported?', answers: ['Nvidia GeForce RTX', 'Nvidia Quadro and AMD', 'All Nvidia', 'Only integrated'], correct: 1, explanation: 'Nvidia Quadro and AMD NOT supported. Always check graphics!' }
     ],
     fsxplay: [
-      { question: 'FSX Play black screen - quick fix?', answers: ['Reinstall', 'Update drivers', 'Select a HOLE first', 'Restart computer'], correct: 2, explanation: 'Most common fix! Select hole before launching session.' },
+      { question: 'FSX Play is loading into a black screen - what is a recommended quick fix?', answers: ['Reinstall', 'Update drivers', 'Select a HOLE first', 'Restart computer'], correct: 2, explanation: 'Most common fix! Select a hole before launching the session.' },
       { question: 'Can FSX Play work offline?', answers: ['Yes, 720 hours', 'Yes, 100 hours', 'No, requires internet always', 'Only on iPad'], correct: 2, explanation: 'FSX Play requires internet always - no offline mode.' },
-      { question: 'Customer wants pro swing analysis. Recommend?', answers: ['Plug-and-play camera', 'High-res driver camera', 'Use Swing Catalyst instead', 'Not supported'], correct: 2, explanation: 'FSX Play is recreational. For pro analysis, use Swing Catalyst!' },
-      { question: 'How many free courses in FSX Play?', answers: ['12 courses', '20 courses', '25 courses', '30 courses'], correct: 2, explanation: 'FSX Play includes 25 free courses - double FSX 2020!' },
-      { question: 'Your FSX Play license is not showing after right after your purchase in your FSX Live account. Why would that be?', answers: ['Server outage', 'Wrong Windows version', 'Activation code not redeemed', 'Course not downloaded'], correct: 2, explanation: 'Licenses do not appear automatically and must be activated using the FSX Play activation code.' },
+      { question: 'Customer wants pro swing analysis. What would we recommend?', answers: ['Plug-and-play camera', 'High-res driver camera', 'Use Swing Catalyst instead', 'Not supported'], correct: 2, explanation: 'FSX Play is recreational. For pro analysis, use Swing Catalyst!' },
+      { question: 'How many free courses are in FSX Play?', answers: ['12 courses', '20 courses', '25 courses', '30 courses'], correct: 2, explanation: 'FSX Play includes 25 free courses' },
+      { question: 'Your FSX Play license is not showing up in your FSX Live account after your purchase. Why would that be?', answers: ['Server outage', 'Wrong Windows version', 'Activation code not redeemed', 'Course not downloaded'], correct: 2, explanation: 'Licenses do not appear automatically and must be activated using the FSX Play activation code.' },
       { question: 'What must be done before a course can be played in FSX Play?', answers: ['Course must be manually installed from the website', 'Download from the Library', 'Restart the software', 'Enable Swing Camera'], correct: 1, explanation: 'Courses must be downloaded from the Library before they can be played.' },
       { question: 'Which cameras are supported by FSX Play?', answers: ['High-resolution driver cameras', 'Professional BlackFly analysis cameras', 'Plug-and-Play cameras only', 'Any USB camera will do'], correct: 2, explanation: 'FSX Play supports Plug-and-Play cameras only. The FSX Play video feature is for recreational analysis only.' },
       { question: 'What is the minimum FSX Play version that supports Swing Camera?', answers: ['1.8.0.12', '1.9.0.5', '1.10.0.10', '2.0.0.0'], correct: 2, explanation: 'Swing Camera is supported only in FSX Play version 1.10.0.10 or newer.' },
@@ -147,16 +147,16 @@ const ForesightLearningApp = () => {
       { question: 'Select the correct URL for the support website', answers: ['https://support.foresightsports.com/support', 'https://support.foresightsports.org', 'https://info.foresightsports.com/support', 'https://help.foresightsports.eu'], correct: 0, explanation: 'All the latest versions can be downloaded from https://support.foresightsports.com/support' }
     ],
     fairgrounds: [
-      { question: 'Fairgrounds cost with FSX 2020?', answers: ['$299/year', '$99 one-time', 'Free - included', '$49/year'], correct: 2, explanation: 'Fairgrounds FREE with FSX 2020!' },
-      { question: 'Hitting line misaligned - fix?', answers: ['Reinstall', 'Use Room Config Tool as Admin', 'Adjust monitor', 'Recalibrate launch monitor'], correct: 1, explanation: 'Use Room Config Tool as Administrator to adjust alignment!' },
-      { question: 'Separate activation code needed?', answers: ['Yes, always', 'No, auto-unlocks with FSX 2020', 'Only first 30 days', 'Depends on license'], correct: 1, explanation: 'No separate code! Auto-unlocks when FSX 2020 activated.' },
-      { question: 'Fairgrounds best for?', answers: ['Professional coaching', 'Tournament only', 'Entertainment and mini-games', 'Club fitting'], correct: 2, explanation: 'Entertainment and mini-games - the party mode!' }
+      { question: 'How much does Fairgrounds cost?', answers: ['£299/year', '£99 one-time', 'Free - included', '£49/year'], correct: 2, explanation: 'Fairgrounds is FREE with FSX 2020!' },
+      { question: 'Hitting line is misaligned - what is the fix?', answers: ['Reinstall', 'Use Room Config Tool as Admin', 'Adjust monitor', 'Recalibrate launch monitor'], correct: 1, explanation: 'Use the Room Config Tool to adjust alignment!' },
+      { question: 'Do you need a separate activation code for Fairgrounds?', answers: ['Yes, always', 'No, auto-unlocks with FSX 2020', 'Only first 30 days', 'Depends on license'], correct: 1, explanation: 'No separate code! Auto-unlocks when FSX 2020 is activated.' },
+      { question: 'What is Fairgrounds best for?', answers: ['Professional coaching', 'Tournament only', 'Entertainment and mini-games', 'Club fitting'], correct: 2, explanation: 'Entertainment and mini-games - the party mode!' }
     ],
     fsxpro: [
-      { question: 'How many devices run FSX Pro simultaneously?', answers: ['One device', 'Two devices', 'Three devices', 'Unlimited'], correct: 1, explanation: 'FSX Pro includes 2 simultaneous licenses!' },
-      { question: '"Upgrade to Unlock" error - likely cause?', answers: ['Trial expired', 'License not linked to account', 'Wrong password', 'Needs update'], correct: 1, explanation: 'License not properly linked to FSX Live account. Log out/in or clean reinstall!' },
+      { question: 'How many devices can run FSX Pro simultaneously?', answers: ['One device', 'Two devices', 'Three devices', 'Unlimited'], correct: 1, explanation: 'FSX Pro includes 2 simultaneous licenses!' },
+      { question: '"Upgrade to Unlock" error - what is the likely cause?', answers: ['Trial expired', 'License not linked to account', 'Wrong password', 'Needs update'], correct: 1, explanation: 'License not properly linked to FSX Live account. Log out/in or clean reinstall!' },
       { question: 'Does FSX Pro sync between PC and iPad?', answers: ['Yes, cloud sync', 'No, local storage only', 'Only on same WiFi', 'Once per day'], correct: 1, explanation: 'Local storage only - no cloud sync. Each device separate database!' },
-      { question: 'Can FSX Pro run on Mac?', answers: ['Yes, Mac and Windows', 'No, but works on iPad', 'Only M1/M2 Macs', 'With special license'], correct: 1, explanation: 'Mac NOT supported. iPad yes, Mac no!' }
+      { question: 'Can FSX Pro run on Mac?', answers: ['Yes, Mac and Windows', 'No, but works on iPad', 'Only M1/M2 Macs', 'With special license'], correct: 1, explanation: 'Mac NOT supported. It can run on an iPad or iPhone, but not on a Mac!' }
     ],
     gcquad: [
       { question: 'GCQuad "Registration Expired" - what happened?', answers: ['Need new subscription', 'Device broken', 'Not validated in 45+ days', 'Warranty expired'], correct: 2, explanation: 'GCQuad needs validation every 45 days!' },
@@ -165,10 +165,10 @@ const ForesightLearningApp = () => {
       { question: 'When validation expires, what works?', answers: ['Everything normal', 'Only USB connection', 'Only WiFi', 'Nothing works'], correct: 1, explanation: 'When expired: WiFi/Bluetooth stops, but USB still works!' }
     ],
     gc3: [
-      { question: 'Best feature selling GC3 over GCQuad?', answers: ['Cheaper', 'More accurate', 'Fits in golf bag - portable!', 'Better battery'], correct: 2, explanation: 'Portability! Weighs ~5 lbs, fits in golf bag.' },
+      { question: 'What wired connection types are available in the GC3?', answers: ['Bluetooth', 'HDMI', 'Ethernet and USB ', 'Display port'], correct: 2, explanation: 'Yes, Ethernet and USB' },
       { question: 'How does GC3S differ from GC3?', answers: ['Better cameras', 'Subscription - no activation codes', 'Outdoor only', 'No difference'], correct: 1, explanation: 'GC3S uses subscription licensing!' },
-      { question: 'What makes GC3 unique vs GCQuad?', answers: ['Four cameras', 'Built-in touchscreen', 'Longer battery', 'Weather-resistant'], correct: 1, explanation: 'GC3 has built-in touchscreen display!' },
-      { question: 'Update GC3 firmware without computer?', answers: ['No, computer required', 'Yes, WiFi-Direct to router', 'Only iPad', 'Only Bluetooth'], correct: 1, explanation: 'WiFi-Direct lets it connect to routers for updates!' }
+      { question: 'What makes the GC3 unique?', answers: ['Four cameras', 'Built-in touchscreen', 'Long battery life', 'Weather-resistant'], correct: 1, explanation: 'GC3 has built-in touchscreen display!' },
+      { question: 'Can you update GC3 firmware without a computer?', answers: ['No, computer required', 'Yes, WiFi-Direct to router', 'Only iPad', 'Only Bluetooth'], correct: 1, explanation: 'WiFi-Direct lets it connect to routers for updates!' }
     ],
     falcon: [
       { question: 'Falcon vs GCHawk size difference?', answers: ['Same size', 'Slightly smaller', 'About half size and weight', 'Twice as large'], correct: 2, explanation: 'Falcon is 43" long, 26 lbs - HALF the size of GCHawk!' },
@@ -180,9 +180,9 @@ const ForesightLearningApp = () => {
       { question: 'Is recalibration only required when Falcon is first installed?', answers: ['Yes, one-time only', 'No, needed when conditions change', 'Only after firmware updates', 'Never required'], correct: 1, explanation: 'Recalibration needed when: device loses lock, hitting area changes, or device is serviced/moved!' }
     ],
     gchawk: [
-      { question: 'GCHawk WiFi password?', answers: ['GCHAWK2024', 'FSSPORTS', 'foresight123', 'No password'], correct: 1, explanation: 'Default WiFi password is FSSPORTS!' },
-      { question: 'What makes GCHawk unique?', answers: ['Most accurate', 'Tracks golf AND soccer', 'Longest battery', 'Smallest size'], correct: 1, explanation: 'GCHawk tracks both golf and soccer!' },
-      { question: 'GCHawk hitting area size?', answers: ['48" x 26"', '59" x 28"', '52" x 30"', '60" x 35"'], correct: 2, explanation: 'GCHawk has 52" x 30" hitting area!' },
+      { question: 'What is the GCHawk WiFi password?', answers: ['GCHAWK2024', 'FSSPORTS', 'foresight123', 'No password'], correct: 1, explanation: 'Default WiFi password is FSSPORTS!' },
+      { question: 'What makes the GCHawk unique?', answers: ['Most accurate', 'Tracks golf AND soccer', 'Longest battery', 'Smallest size'], correct: 1, explanation: 'GCHawk tracks both golf and soccer!' },
+      { question: 'What is the GCHawk hitting area size - if mounted at our recommended height?', answers: ['48" x 26"', '59" x 28"', '52" x 30"', '60" x 35"'], correct: 2, explanation: 'GCHawk has 52" x 30" hitting area! These measurements only apply if you followed our recommended mounting height!' },
       { question: 'Customer has club data - expected LED?', answers: ['Blue', 'Green', 'Yellow', 'Purple'], correct: 1, explanation: 'Green = Ball & Club mode!' }
     ]
   };
